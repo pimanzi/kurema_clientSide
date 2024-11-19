@@ -44,13 +44,13 @@ const LandingCarousel = () => {
   ];
 
   const settings = {
-    dots: true, // Enable dots for navigation
-    infinite: true, // Infinite looping
-    speed: 800, // Slower transition for smoother visuals
-    slidesToShow: 3, // Show 3 slides at a time
-    slidesToScroll: 3, // Scroll 3 slides at a time
+    dots: true,
+    infinite: true,
+    speed: 1000,
+    slidesToShow: 3,
+    slidesToScroll: 3,
     autoplay: true,
-    autoplaySpeed: 4000,
+    autoplaySpeed: 6000,
     pauseOnHover: true,
     arrows: false,
     responsive: [

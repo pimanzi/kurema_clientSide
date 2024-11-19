@@ -80,11 +80,6 @@ export default function Navbar() {
       </li>
 
       {/* Join Us */}
-      <AuthModal>
-        <button className="rounded-md border border-black bg-black px-3 py-2 font-poppins font-semibold text-white transition-all duration-300 hover:scale-x-110">
-          Join us
-        </button>
-      </AuthModal>
 
       {/* Cart */}
       <li>
@@ -92,6 +87,12 @@ export default function Navbar() {
           Cart
         </NavLink>
       </li>
+
+      <AuthModal>
+        <button className="rounded-md border border-black bg-black px-3 py-2 font-poppins font-semibold text-white transition-all duration-300 hover:scale-x-110">
+          Join us
+        </button>
+      </AuthModal>
     </ul>
   );
 }

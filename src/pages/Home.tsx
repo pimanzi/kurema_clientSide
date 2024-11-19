@@ -1,3 +1,9 @@
+import LandingCarousel from "@/UI/LandingCarousel";
+
 export default function Home() {
-  return <h1>Hello</h1>;
+  return (
+    <section>
+      <LandingCarousel></LandingCarousel>
+    </section>
+  );
 }

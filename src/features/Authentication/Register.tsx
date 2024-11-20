@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { useForm } from "react-hook-form";
 import "../../Styles/Register.css";
+import { useTranslation } from "react-i18next";
 
 // Define the interface for form data for Login
 interface ILoginFormInput {
@@ -18,6 +19,7 @@ interface ISignUpFormInput {
 }
 
 export default function Register() {
+  const { t } = useTranslation();
   const [isLogin, setIsLogin] = useState(true); // State to toggle between login and signup
 
   const handleLoginClick = () => setIsLogin(true);
@@ -55,20 +57,16 @@ export default function Register() {
         {isLogin ? (
           <div className="w-full">
             <p className="title text-center font-playfair font-extrabold">
-              Login
+              {t("loginTitle")}
             </p>
-            <p className="text-normal text-[#504f4f]">
-              Welcome back! Let's create and explore art.
-            </p>
+            <p className="text-normal text-[#504f4f]">{t("loginMessage")}</p>
           </div>
         ) : (
           <div className="w-full">
             <p className="title text-center font-playfair font-extrabold">
-              Signup
+              {t("signupTitle")}
             </p>
-            <p className="text-normal text-[#504f4f]">
-              Join us to explore, create, and enjoy art!
-            </p>
+            <p className="text-normal text-[#504f4f]">{t("signupMessage")}</p>
           </div>
         )}
       </div>
@@ -90,10 +88,10 @@ export default function Register() {
           onChange={handleSignupClick}
         />
         <label htmlFor="login" className="slide login">
-          Login
+          {t("loginTitle")}
         </label>
         <label htmlFor="signup" className="slide signup">
-          Signup
+          {t("signupTitle")}
         </label>
         <div className="slider-tab"></div>
       </div>
@@ -106,9 +104,9 @@ export default function Register() {
               <div className="field">
                 <input
                   type="email"
-                  placeholder="Email Address"
+                  placeholder={t("emailInput")}
                   {...registerLogin("loginEmail", {
-                    required: "Email is required",
+                    required: t("emailInputAlert"),
                   })}
                   className={loginErrors.loginEmail ? "error" : ""}
                 />
@@ -119,9 +117,9 @@ export default function Register() {
               <div className="field">
                 <input
                   type="password"
-                  placeholder="Password"
+                  placeholder={t("passwordInput")}
                   {...registerLogin("passwordEmail", {
-                    required: "Password is required",
+                    required: t("passwordInputAlert"),
                   })}
                   className={loginErrors.passwordEmail ? "error" : ""}
                 />
@@ -131,14 +129,14 @@ export default function Register() {
                 </span>
               </div>
               <div className="font-bold text-[#ffcb05] hover:underline">
-                <a href="#">Forgot password?</a>
+                <a href="#">{t("forgotPassword")}</a>
               </div>
               <div className="field btn">
                 <div className="btn-layer"></div>
-                <input type="submit" value="Login" />
+                <input type="submit" value={t("loginTitle")} />
               </div>
               <div className="signup-link">
-                Not a member?{" "}
+                {t("notMember")}
                 <a
                   href="#"
                   onClick={(e) => {
@@ -146,7 +144,7 @@ export default function Register() {
                     setIsLogin(false);
                   }}
                 >
-                  Signup now
+                  {t("signupCall")}
                 </a>
               </div>
             </form>
@@ -159,9 +157,9 @@ export default function Register() {
                 <div className="field">
                   <input
                     type="text"
-                    placeholder="First name"
+                    placeholder={t("firstNameInput")}
                     {...registerSignup("firstName", {
-                      required: "First name is required",
+                      required: t("firstNameInputAlert"),
                     })}
                     className={signupErrors.firstName ? "error" : ""}
                   />
@@ -172,9 +170,9 @@ export default function Register() {
                 <div className="field">
                   <input
                     type="text"
-                    placeholder="Last name"
+                    placeholder={t("lastNameInput")}
                     {...registerSignup("lastName", {
-                      required: "Last name is required",
+                      required: t("lastNameInputAlert"),
                     })}
                     className={signupErrors.lastName ? "error" : ""}
                   />
@@ -187,9 +185,9 @@ export default function Register() {
               <div className="field">
                 <input
                   type="email"
-                  placeholder="Email Address"
+                  placeholder={t("emailInput")}
                   {...registerSignup("signupEmail", {
-                    required: "Email is required",
+                    required: t("emailInputAlert"),
                   })}
                   className={signupErrors.signupEmail ? "error" : ""}
                 />
@@ -200,9 +198,9 @@ export default function Register() {
               <div className="field">
                 <input
                   type="password"
-                  placeholder="Password"
+                  placeholder={t("passwordInput")}
                   {...registerSignup("signupPassword", {
-                    required: "Password is required",
+                    required: t("passwordInputAlert"),
                   })}
                   className={signupErrors.signupPassword ? "error" : ""}
                 />
@@ -214,12 +212,12 @@ export default function Register() {
               <div className="field">
                 <input
                   type="password"
-                  placeholder="Confirm Password"
+                  placeholder={t("confirmPasswordInput")}
                   {...registerSignup("confirmPassword", {
-                    required: "Confirm Password is required",
+                    required: t("confirmPasswordInputAlert"),
                     validate: (value) => {
                       if (value !== passwordSignup) {
-                        return "Passwords do not match"; // Return error message if passwords don't match
+                        return t("passwordsMatchAlert"); // Return error message if passwords don't match
                       }
                       return true; // Return true if passwords match
                     },
@@ -233,7 +231,7 @@ export default function Register() {
               </div>
               <div className="field btn">
                 <div className="btn-layer"></div>
-                <input type="submit" value="Signup" />
+                <input type="submit" value={t("signupTitle")} />
               </div>
             </form>
           )}

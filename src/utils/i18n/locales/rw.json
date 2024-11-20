@@ -1,0 +1,20 @@
+{
+  "loginTitle": "Injira",
+  "loginMessage": "Tugarutse! Reba no gukora, turebe ubuhanzi.",
+  "signupTitle": "Kwiyandikisha",
+  "signupMessage": "Dufatanye gukora, kureba, no kwishimira ubuhanzi!",
+  "emailInput": "Ibaruwa y'imeri",
+  "emailInputAlert": "Ibaruwa irakenewe",
+  "passwordInput": "Ijambo ry'ibanga",
+  "passwordInputAlert": "Ijambo ry'ibanga irakenewe",
+  "forgotPassword": "Wibagiwe ijambo?",
+  "notMember": "Si umunyamuryango?",
+  "signupCall": "Iyandikishe",
+  "firstNameInput": "Izina ryambere",
+  "firstNameInputAlert": "Izina ryambere rirakenewe",
+  "lastNameInput": "Izina rya nyuma",
+  "lastNameInputAlert": "Izina rya nyuma rirakenewe",
+  "confirmPasswordInput": "Emeza ijambo ry'ibanga",
+  "confirmPasswordInputAlert": "Kwemeza ijambo ry'ibanga irakenewe",
+  "passwordsMatchAlert": "Amagambo y'ibanga ntabwo ahura"
+}

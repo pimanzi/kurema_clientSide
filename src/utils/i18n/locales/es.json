@@ -1,0 +1,20 @@
+{
+  "loginTitle": "Iniciar sesión",
+  "loginMessage": "¡Bienvenido! Vamos a crear y explorar arte.",
+  "signupTitle": "Registrarse",
+  "signupMessage": "Únete a nosotros para explorar, crear y disfrutar arte.",
+  "emailInput": "Correo electrónico",
+  "emailInputAlert": "Correo obligatorio",
+  "passwordInput": "Contraseña",
+  "passwordInputAlert": "Contraseña obligatoria",
+  "forgotPassword": "¿Olvidaste la contraseña?",
+  "notMember": "¿No eres miembro?",
+  "signupCall": "Regístrate ahora",
+  "firstNameInput": "Nombre",
+  "firstNameInputAlert": "Nombre obligatorio",
+  "lastNameInput": "Apellido",
+  "lastNameInputAlert": "Apellido obligatorio",
+  "confirmPasswordInput": "Confirmar contraseña",
+  "confirmPasswordInputAlert": "Confirmar contraseña obligatoria",
+  "passwordsMatchAlert": "Las contraseñas no coinciden"
+}

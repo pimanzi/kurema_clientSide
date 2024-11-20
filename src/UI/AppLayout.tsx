@@ -6,7 +6,7 @@ export default function AppLayout() {
   return (
     <div className="w-[100vw] overflow-hidden">
       <Header></Header>;
-      <main className="mt-0 px-[12vw]">
+      <main className="mt-0">
         <Outlet></Outlet>
       </main>
       <Footer></Footer>

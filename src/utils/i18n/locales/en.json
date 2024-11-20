@@ -1,0 +1,20 @@
+{
+  "loginTitle": "Login",
+  "loginMessage": " Welcome back! Let's create and explore art.",
+  "signupTitle": "Signup",
+  "signupMessage": " Join us to explore, create, and enjoy art!",
+  "emailInput": "Email Adress",
+  "emailInputAlert": "Email is required",
+  "passwordInput": "Password",
+  "passwordInputAlert": "Password is required",
+  "forgotPassword": "Forgot password?",
+  "notMember": "Not a member?",
+  "signupCall": "Signup now",
+  "firstNameInput": "First name",
+  "firstNameInputAlert": "First name is required",
+  "lastNameInput": "Last name",
+  "lastNameInputAlert": "Last name is required",
+  "confirmPasswordInput": "Confirm Password",
+  "confirmPasswordInputAlert": "Confirm Password is required",
+  "passwordsMatchAlert": "Passwords do not match"
+}

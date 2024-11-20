@@ -3,7 +3,7 @@ import { FaSackDollar } from "react-icons/fa6";
 
 export default function About() {
   return (
-    <section id="about" className="pb-[100px] pt-[80px]">
+    <section id="about" className="px-[12vw] pb-[100px] pt-[80px]">
       <h2 className="mb-9 text-center font-playfair text-4xl font-extrabold">
         Why To Choose Us
       </h2>

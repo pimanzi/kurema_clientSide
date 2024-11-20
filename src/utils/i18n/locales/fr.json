@@ -1,0 +1,20 @@
+{
+  "loginTitle": "Connexion",
+  "loginMessage": "Content de vous revoir ! Créons et explorons l'art.",
+  "signupTitle": "S'inscrire",
+  "signupMessage": "Rejoignez-nous pour explorer, créer et profiter de l'art !",
+  "emailInput": "E-mail",
+  "emailInputAlert": "E-mail requis",
+  "passwordInput": "Mot de passe",
+  "passwordInputAlert": "Mot de passe requis",
+  "forgotPassword": "Mot de passe oublié ?",
+  "notMember": "Pas membre ?",
+  "signupCall": "Inscrivez-vous",
+  "firstNameInput": "Prénom",
+  "firstNameInputAlert": "Prénom requis",
+  "lastNameInput": "Nom",
+  "lastNameInputAlert": "Nom requis",
+  "confirmPasswordInput": "Confirmer mot de passe",
+  "confirmPasswordInputAlert": "Confirmation requise",
+  "passwordsMatchAlert": "Mots de passe non identiques"
+}

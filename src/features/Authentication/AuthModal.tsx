@@ -5,7 +5,7 @@ export function AuthModal({ children }: { children: React.ReactNode }) {
   return (
     <Dialog>
       <DialogTrigger asChild>{children}</DialogTrigger>
-      <DialogContent className="sm:max-w-[425px]">
+      <DialogContent className="w-fit px-8">
         {<Register></Register>}
       </DialogContent>
     </Dialog>

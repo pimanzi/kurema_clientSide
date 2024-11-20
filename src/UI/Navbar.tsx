@@ -1,11 +1,33 @@
 import { useState } from "react";
 import { RiArrowDropDownLine, RiArrowDropUpLine } from "react-icons/ri";
-import { NavLink } from "react-router-dom";
+import { NavLink, useNavigate } from "react-router-dom";
 import { HoverCardDemo } from "./HoverCard";
 import { AuthModal } from "@/features/Authentication/AuthModal";
+import { scroller, Link as ScrollerLink } from "react-scroll";
 
 export default function Navbar() {
+  const navigate = useNavigate();
   const [isHovered, setIsHovered] = useState(false);
+  const handleNavigation = (section: string) => {
+    if (location.pathname === "/home") {
+      // Scroll to the section if on the /home page
+      scroller.scrollTo(section, {
+        smooth: true,
+        duration: 500,
+        offset: -50, // Adjust for headers
+      });
+    } else {
+      // Navigate to /home and scroll to the section
+      navigate(`/home#${section}`);
+      setTimeout(() => {
+        scroller.scrollTo(section, {
+          smooth: true,
+          duration: 500,
+          offset: -50, // Adjust for headers
+        });
+      }, 100); // Delay for navigation completion
+    }
+  };
   return (
     <ul className="flex items-center gap-6">
       {/* Home */}
@@ -21,24 +43,35 @@ export default function Navbar() {
 
       {/* About */}
       <li className="relative">
-        <a
-          className="relative block font-poppins transition-all duration-300 hover:scale-x-110"
-          href="#about"
+        <ScrollerLink
+          to="about"
+          spy={true}
+          smooth={true}
+          duration={500}
+          offset={-50}
+          onClick={() => handleNavigation("about")}
+          className="block cursor-pointer font-poppins transition-all duration-300 hover:scale-x-110"
         >
           About
           <span className="linkHover absolute left-0 top-[25px] h-[2px] w-0 origin-left bg-black transition-all duration-300 group-hover:w-full" />
-        </a>
+        </ScrollerLink>
       </li>
 
       {/* Arts */}
       <li className="relative">
-        <a
+        <ScrollerLink
+          to="arts"
+          spy={true}
+          smooth={true}
+          duration={500}
+          offset={-50}
+          onClick={() => handleNavigation("arts")}
           className="relative block font-poppins transition-all duration-300 hover:scale-x-110"
           href="#arts"
         >
           Arts
           <span className="linkHover absolute left-0 top-[25px] h-[2px] w-0 origin-left bg-black transition-all duration-300 group-hover:w-full" />
-        </a>
+        </ScrollerLink>
       </li>
 
       {/* Catalog */}

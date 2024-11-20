@@ -38,7 +38,7 @@ const LandingCarousel = () => {
       text: "Moments captured in art",
     },
     {
-      image: "/Images/carousel/guitar_carousel.jpeg",
+      image: "/Images/carousel/acoustic.jpeg",
       text: "The magic of artistic expression",
     },
   ];
@@ -72,13 +72,13 @@ const LandingCarousel = () => {
   };
 
   return (
-    <div className="mt-[-25px] bg-[#ffcb05] px-2 pb-7 pt-5">
-      <div className="w-full">
+    <div className="mt-[50px] bg-[#ffcb05] pb-7 pt-5">
+      <div className="mx-auto w-[95%]">
         <Slider {...settings}>
           {slides.map((slide, index) => (
             <motion.div
               key={index}
-              className="relative px-2"
+              className="relative rounded-2xl px-2 py-1"
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               transition={{ duration: 0.5, delay: index * 0.2 }}
@@ -88,7 +88,7 @@ const LandingCarousel = () => {
                 <img
                   src={slide.image}
                   alt={`Slide ${index}`}
-                  className="h-[550px] w-full object-cover transition-transform duration-300 hover:scale-105"
+                  className="h-[550px] w-full rounded-2xl object-cover transition-transform duration-300 hover:scale-105"
                 />
               </div>
               {/* Text Below Image */}

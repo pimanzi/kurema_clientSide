@@ -3,9 +3,9 @@ import Header from "./Header";
 
 export default function AppLayout() {
   return (
-    <div>
+    <div className="w-[100vw] overflow-hidden">
       <Header></Header>;
-      <main className="mt-0">
+      <main className="mx-0 mt-0">
         <Outlet></Outlet>
       </main>
     </div>

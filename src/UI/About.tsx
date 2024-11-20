@@ -7,7 +7,7 @@ export default function About() {
       <h2 className="mb-9 text-center font-playfair text-4xl font-extrabold">
         Why To Choose Us
       </h2>
-      <div className="flex items-center justify-center gap-3 pt-8">
+      <div className="flex items-center gap-3 pt-8">
         <div className="flex w-[500px] flex-col items-center px-3">
           <div className="flex h-[140px] w-[140px] items-center justify-center rounded-full bg-[#ffcd05]">
             <FaPalette size={80} />

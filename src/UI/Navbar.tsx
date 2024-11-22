@@ -2,7 +2,6 @@ import { useState } from "react";
 import { RiArrowDropDownLine, RiArrowDropUpLine } from "react-icons/ri";
 import { NavLink, useNavigate } from "react-router-dom";
 import { HoverCardDemo } from "./HoverCard";
-import { AuthModal } from "@/features/Authentication/AuthModal";
 import { scroller, Link as ScrollerLink } from "react-scroll";
 
 export default function Navbar() {
@@ -120,12 +119,6 @@ export default function Navbar() {
           Cart
         </NavLink>
       </li>
-
-      <AuthModal>
-        <button className="rounded-md border border-black bg-black px-3 py-2 font-poppins font-semibold text-white transition-all duration-300 hover:scale-x-110">
-          Join us
-        </button>
-      </AuthModal>
     </ul>
   );
 }

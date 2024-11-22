@@ -78,7 +78,7 @@ export default function Footer() {
           </div>
         </div>
       </div>
-      <hr className="mb-[10px] mt-[50px] font-light text-white"></hr>
+      <hr className="mb-[10px] mt-[100px] font-light text-white"></hr>
       <p className="text-center font-light text-white">
         &copy; {year}. ALL RIGHTS RESERVED
       </p>

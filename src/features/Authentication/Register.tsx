@@ -2,6 +2,8 @@ import { useState } from "react";
 import { useForm } from "react-hook-form";
 import "../../Styles/Register.css";
 import { useTranslation } from "react-i18next";
+import useLoginUser from "./useLoginUser";
+import useSignup from "./useSignup";
 
 // Define the interface for form data for Login
 interface ILoginFormInput {
@@ -18,7 +20,13 @@ interface ISignUpFormInput {
   confirmPassword: string;
 }
 
-export default function Register() {
+export default function Register({
+  setOpen,
+}: {
+  setOpen: (value: boolean) => void;
+}) {
+  const { login, isLogin: loggingIn } = useLoginUser();
+  const { signingUp, isSigningUp } = useSignup();
   const { t } = useTranslation();
   const [isLogin, setIsLogin] = useState(true); // State to toggle between login and signup
 
@@ -38,16 +46,41 @@ export default function Register() {
     handleSubmit: handleSubmitSignup,
     formState: { errors: signupErrors },
     watch: watchSignup,
+    reset,
   } = useForm<ISignUpFormInput>();
 
   const passwordSignup = watchSignup("signupPassword");
 
   function onSubmitLogin(data: ILoginFormInput) {
-    console.log("Login Data", data);
+    login(
+      {
+        email: data.loginEmail,
+        password: data.passwordEmail,
+      },
+      {
+        onSettled: () => {
+          reset();
+          setOpen(false);
+        },
+      },
+    );
   }
 
   function onSubmitSignUp(data: ISignUpFormInput) {
-    console.log("Signup Data", data);
+    signingUp(
+      {
+        firstName: data.firstName,
+        lastName: data.lastName,
+        email: data.signupEmail,
+        password: data.signupPassword,
+      },
+      {
+        onSettled: () => {
+          reset();
+          setOpen(false);
+        },
+      },
+    );
   }
 
   return (
@@ -59,14 +92,16 @@ export default function Register() {
             <p className="title text-center font-playfair font-extrabold">
               {t("loginTitle")}
             </p>
-            <p className="text-normal text-[#504f4f]">{t("loginMessage")}</p>
+            <p className="block w-full text-sm text-[#504f4f]">
+              {t("loginMessage")}
+            </p>
           </div>
         ) : (
           <div className="w-full">
             <p className="title text-center font-playfair font-extrabold">
               {t("signupTitle")}
             </p>
-            <p className="text-normal text-[#504f4f]">{t("signupMessage")}</p>
+            <p className="ml-4 text-sm text-[#504f4f]">{t("signupMessage")}</p>
           </div>
         )}
       </div>
@@ -128,16 +163,21 @@ export default function Register() {
                     loginErrors.passwordEmail.message}
                 </span>
               </div>
-              <div className="font-bold text-[#ffcb05] hover:underline">
+              <div className="mt-3 text-sm font-extrabold text-[#ffcb05] hover:underline">
                 <a href="#">{t("forgotPassword")}</a>
               </div>
               <div className="field btn">
                 <div className="btn-layer"></div>
-                <input type="submit" value={t("loginTitle")} />
+                <input
+                  disabled={loggingIn}
+                  type="submit"
+                  value={t("loginTitle")}
+                />
               </div>
-              <div className="signup-link">
-                {t("notMember")}
+              <div className="mt-3">
+                <span className="mr-2 text-sm">{t("notMember")}</span>
                 <a
+                  className="text-sm font-extrabold text-[#ffcb05] hover:underline"
                   href="#"
                   onClick={(e) => {
                     e.preventDefault();
@@ -231,7 +271,11 @@ export default function Register() {
               </div>
               <div className="field btn">
                 <div className="btn-layer"></div>
-                <input type="submit" value={t("signupTitle")} />
+                <input
+                  disabled={isSigningUp}
+                  type="submit"
+                  value={t("signupTitle")}
+                />
               </div>
             </form>
           )}

@@ -70,7 +70,7 @@ function UpdatePassword() {
       <div>
         <Button
           disabled={isUpdatingUser}
-          className="w-full rounded-full bg-[var(--border-color-hover)] px-2 py-6 text-sm text-white transition-all duration-300 hover:scale-x-105 hover:scale-y-105 hover:bg-[var(--border-color-hover)]"
+          className="w-full rounded-full bg-[#ffcb05] px-2 py-6 text-sm text-black transition-all duration-300 hover:scale-x-105 hover:scale-y-105 hover:bg-[#ffcb05]"
         >
           {t("saveChangesButton")}
         </Button>

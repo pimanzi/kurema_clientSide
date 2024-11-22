@@ -3,7 +3,7 @@ import UpdateUserInfo from "@/features/Authentication/UpdateUserInfo";
 
 export default function Profile() {
   return (
-    <div>
+    <div className="mb-[20px] mt-[60px]">
       <UpdateUserInfo></UpdateUserInfo>
       <UpdatePassword></UpdatePassword>
     </div>

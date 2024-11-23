@@ -1,17 +1,14 @@
-import Profile from "@/UI/Profile";
+import AccountNav from "@/components/ui/AccountNav";
+import { Outlet } from "react-router-dom";
 
 export default function Account() {
   return (
-    <div className="grid grid-cols-[15vw_auto] px-[20vw]">
-      <div className="bg-blue-500">
-        <ul>
-          <li>Personal Info</li>
-          <li>Manage your Arts</li>
-          <li>Log Out</li>
-        </ul>
+    <div className="grid grid-cols-[10Svw_auto] gap-6 px-[20vw]">
+      <div className="mb-[70px] mt-[90px] items-center border-r-[1px]">
+        <AccountNav></AccountNav>
       </div>
       <div>
-        <Profile></Profile>
+        <Outlet></Outlet>
       </div>
     </div>
   );

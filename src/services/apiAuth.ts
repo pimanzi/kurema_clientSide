@@ -48,7 +48,7 @@ export async function signUp({
     throw new Error(`Failed to insert user data: ${userDataError.message}`);
   }
 
-  return userData;
+  return { data, userData };
 }
 
 export async function loginUser({ email, password }: LoginData) {

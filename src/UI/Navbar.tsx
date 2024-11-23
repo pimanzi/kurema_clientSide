@@ -9,22 +9,20 @@ export default function Navbar() {
   const [isHovered, setIsHovered] = useState(false);
   const handleNavigation = (section: string) => {
     if (location.pathname === "/home") {
-      // Scroll to the section if on the /home page
       scroller.scrollTo(section, {
         smooth: true,
         duration: 500,
-        offset: -50, // Adjust for headers
+        offset: -50,
       });
     } else {
-      // Navigate to /home and scroll to the section
       navigate(`/home#${section}`);
       setTimeout(() => {
         scroller.scrollTo(section, {
           smooth: true,
           duration: 500,
-          offset: -50, // Adjust for headers
+          offset: -50,
         });
-      }, 100); // Delay for navigation completion
+      }, 100);
     }
   };
   return (

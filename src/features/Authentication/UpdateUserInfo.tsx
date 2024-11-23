@@ -35,16 +35,16 @@ function UpdateUserInfo() {
       className="bgTablet:py-7 bgTablet:px-10 bgTablet:w-[980px] w-full space-y-7 rounded-2xl bg-[var(--color-grey-0)] px-7 py-7"
       onSubmit={onSubmit}
     >
-      <h3 className="text-xl font-bold">{t("personalInfoTitle")}</h3>
+      <h3 className="text-xl font-bold">Personal Info</h3>
 
       <Label
         htmlFor="avatar"
-        className="relative block h-[70px] w-[70px] cursor-pointer overflow-hidden rounded-full text-sm font-bold"
+        className="relative block h-[70px] w-[70px] cursor-pointer overflow-hidden rounded-full text-sm font-semibold"
       >
         <div className="absolute inset-0 z-10 rounded-full bg-black opacity-50"></div>
 
         <img
-          src={avatar ? avatar : "default-user.jpg"}
+          src={avatar ? avatar : "/Images/default-user.jpg"}
           alt="avatar"
           className="z-0 h-full w-full rounded-full object-cover"
           style={{ opacity: 0.8 }}
@@ -78,13 +78,13 @@ function UpdateUserInfo() {
       </Label>
 
       <div className="flex flex-col gap-1">
-        <Label htmlFor="email" className="text-sm font-bold">
-          {t("emailInput")}
+        <Label htmlFor="email" className="text-sm font-semibold">
+          Email
         </Label>
         <Input value={email} disabled id="email" />
       </div>
       <div className="flex flex-col gap-1">
-        <Label htmlFor="firstName" className="text-sm font-bold">
+        <Label htmlFor="firstName" className="text-sm font-semibold">
           First Name
         </Label>
         <Input
@@ -96,7 +96,7 @@ function UpdateUserInfo() {
       </div>
 
       <div className="flex flex-col gap-1">
-        <Label htmlFor="lastName" className="text-sm font-bold">
+        <Label htmlFor="lastName" className="text-sm font-semibold">
           Last Name
         </Label>
         <Input
@@ -111,7 +111,7 @@ function UpdateUserInfo() {
         <Button
           disabled={isUpdatingUser}
           type="submit"
-          className="w-full rounded-full bg-[#ffcb05] px-2 py-6 text-sm text-black transition-all duration-300 hover:scale-x-105 hover:scale-y-105 hover:bg-[#ffcb05]"
+          className="w-full rounded-full bg-[#ffcb05] px-2 py-6 text-sm text-black transition-all duration-300 hover:scale-x-105 hover:scale-y-105 hover:bg-[#fcde51;]"
         >
           Save Changes
         </Button>

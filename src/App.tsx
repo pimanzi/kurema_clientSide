@@ -8,6 +8,7 @@ import { Toaster } from "react-hot-toast";
 import { ReactQueryDevtools } from "@tanstack/react-query-devtools";
 import ProtectedRoute from "./UI/protectedRoute";
 import Account from "./pages/Account";
+import PersonalInfo from "./UI/PersonalInfo";
 
 const queryClient = new QueryClient({
   defaultOptions: {
@@ -39,7 +40,16 @@ export default function App() {
                 </ProtectedRoute>
               }
               path="account"
-            ></Route>
+            >
+              <Route
+                index
+                element={<Navigate replace to="personalInfo"></Navigate>}
+              ></Route>
+              <Route
+                element={<PersonalInfo></PersonalInfo>}
+                path="personalInfo"
+              ></Route>
+            </Route>
           </Route>
         </Routes>
       </BrowserRouter>

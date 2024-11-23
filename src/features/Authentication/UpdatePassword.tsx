@@ -17,12 +17,20 @@ function UpdatePassword() {
     handleSubmit,
     formState: { errors },
     watch,
+    reset,
   } = useForm<PasswordUpdate>();
 
   function onSubmit(data: PasswordUpdate) {
-    updatingUser({
-      password: data.password,
-    });
+    updatingUser(
+      {
+        password: data.password,
+      },
+      {
+        onSettled: () => {
+          reset();
+        },
+      },
+    );
   }
 
   const passwordField = watch("password");
@@ -31,11 +39,11 @@ function UpdatePassword() {
       className="bgTablet:py-7 bgTablet:px-10 bgTablet:w-[980px] w-full space-y-7 rounded-2xl bg-[var(--color-grey-0)] px-7 py-7"
       onSubmit={handleSubmit(onSubmit)}
     >
-      <h3 className="text-xl font-bold">{t("passwordTitleForm")}</h3>
+      <h3 className="text-xl font-bold">Set a password</h3>
 
       <div className="flex flex-col gap-1">
-        <Label htmlFor="password" className="text-sm font-bold">
-          {t("newPasswordInput")}
+        <Label htmlFor="password" className="text-sm font-semibold">
+          New password
         </Label>
         <Input
           id="password"
@@ -51,8 +59,8 @@ function UpdatePassword() {
         )}
       </div>
       <div className="flex flex-col gap-1">
-        <Label htmlFor="confirnPassword" className="text-sm font-bold">
-          {t("confirmPasswordInput")}
+        <Label htmlFor="confirnPassword" className="text-sm font-semibold">
+          Confirm password
         </Label>
         <Input
           type="password"
@@ -70,9 +78,9 @@ function UpdatePassword() {
       <div>
         <Button
           disabled={isUpdatingUser}
-          className="w-full rounded-full bg-[#ffcb05] px-2 py-6 text-sm text-black transition-all duration-300 hover:scale-x-105 hover:scale-y-105 hover:bg-[#ffcb05]"
+          className="w-full rounded-full bg-[#ffcb05] px-2 py-6 text-sm text-black transition-all duration-300 hover:scale-x-105 hover:scale-y-105 hover:bg-[#fcde51;]"
         >
-          {t("saveChangesButton")}
+          Save changes
         </Button>
       </div>
     </form>

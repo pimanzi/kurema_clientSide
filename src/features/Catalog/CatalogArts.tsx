@@ -1,9 +1,10 @@
 import { formatCurrency } from "@/utils/helpers";
 import { useArts } from "../Arts/useArts";
 import { Card, CardContent } from "@/components/ui/card";
-import { useSearchParams } from "react-router-dom";
+import { useNavigate, useSearchParams } from "react-router-dom";
 
 export default function CatalogArts() {
+  const navigate = useNavigate();
   const { arts } = useArts();
   const [searchParams] = useSearchParams();
   const category = searchParams.get("category") || "all";
@@ -42,7 +43,10 @@ export default function CatalogArts() {
       {sortedArts?.map((art, index) => (
         <div key={index} className="item">
           <div className="group relative h-full transition-all duration-300 hover:translate-y-[-5px]">
-            <Card className="mx-2 h-full transform transition-all duration-300">
+            <Card
+              className="mx-2 h-full transform transition-all duration-300"
+              onClick={() => navigate(`/art/${art.id}`)}
+            >
               <CardContent className="flex flex-col p-0">
                 <div className="relative">
                   <img

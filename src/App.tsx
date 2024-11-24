@@ -10,6 +10,7 @@ import ProtectedRoute from "./UI/protectedRoute";
 import Account from "./pages/Account";
 import PersonalInfo from "./UI/PersonalInfo";
 import ManageArts from "./features/Arts/ManageArts";
+import Art from "./pages/Art";
 
 const queryClient = new QueryClient({
   defaultOptions: {
@@ -34,6 +35,7 @@ export default function App() {
             <Route element={<Home></Home>} path="home"></Route>
             <Route element={<Catalog></Catalog>} path="catalog"></Route>
             <Route element={<Cart></Cart>} path="cart"></Route>
+            <Route element={<Art></Art>} path="art/:id"></Route>
             <Route
               element={
                 <ProtectedRoute>

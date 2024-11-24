@@ -95,13 +95,36 @@ export async function updateUser({
 }: UserUpdate) {
   let updatedObject;
 
-  if (firstName && lastName) updatedObject = { data: { firstName, lastName } };
-  if (password) updatedObject = { password };
+  if (firstName && lastName) {
+    updatedObject = { data: { firstName, lastName } };
+  }
+  if (password) {
+    updatedObject = { password };
+  }
+
+  // Keep the existing auth table update logic unchanged
   const { data: updatedUser, error } = await supabase.auth.updateUser(
     updatedObject as UserUpdate,
   );
+
   if (error) {
     throw new Error(error.message);
+  }
+
+  // Update the authUsers table
+  const userId = updatedUser.user.id;
+  if (firstName && lastName) {
+    const { error: authError } = await supabase
+      .from("authUsers")
+      .update({
+        firstName,
+        lastName,
+      })
+      .eq("authUserId", userId);
+
+    if (authError) {
+      throw new Error(authError.message);
+    }
   }
 
   return updatedUser;
@@ -129,5 +152,17 @@ export async function UpdateProfileImage({ avatar }: { avatar: File }) {
     throw new Error(error2.message);
   }
 
+  const userId = updatedUserAvatar.user.id;
+
+  const { error: authError } = await supabase
+    .from("authUsers")
+    .update({
+      avatar: `${supabaseUrl}/storage/v1/object/public/avatars/${fileName}`,
+    })
+    .eq("authUserId", userId);
+
+  if (authError) {
+    throw new Error(authError.message);
+  }
   return updatedUserAvatar;
 }

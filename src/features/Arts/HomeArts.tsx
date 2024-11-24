@@ -10,8 +10,10 @@ import {
 } from "@/components/ui/carousel";
 import { useArts } from "./useArts";
 import { formatCurrency } from "@/utils/helpers";
+import { useNavigate } from "react-router-dom";
 
 export default function HomeArts() {
+  const navigate = useNavigate();
   const { arts } = useArts();
   const artsShow = arts?.slice(0, 9);
 
@@ -26,7 +28,10 @@ export default function HomeArts() {
             {artsShow.map((art, index) => (
               <CarouselItem key={index} className="flex-shrink-0 basis-1/3">
                 <div className="group relative h-full">
-                  <Card className="h-full transform transition-all duration-300">
+                  <Card
+                    className="h-full transform transition-all duration-300"
+                    onClick={() => navigate(`/art/${art.id}`)}
+                  >
                     <CardContent className="flex flex-col p-0">
                       <div className="relative">
                         <img

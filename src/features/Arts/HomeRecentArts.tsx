@@ -3,8 +3,10 @@ import { useRecentArts } from "./useRecentArts";
 import { Card, CardContent } from "@/components/ui/card";
 import { GrCart } from "react-icons/gr";
 import Slider from "react-slick";
+import { useNavigate } from "react-router-dom";
 
 const HomeRecentArts = () => {
+  const navigate = useNavigate();
   const { arts } = useRecentArts();
   const artsShow = arts?.slice(0, 9); // Get the first 9 items
 
@@ -42,7 +44,10 @@ const HomeRecentArts = () => {
         {artsShow?.map((art, index) => (
           <div key={index} className="item">
             <div className="group relative h-full">
-              <Card className="mx-2 h-full transform transition-all duration-300">
+              <Card
+                className="mx-2 h-full transform transition-all duration-300"
+                onClick={() => navigate(`/art/${art.id}`)}
+              >
                 <CardContent className="flex flex-col p-0">
                   <div className="relative">
                     <img

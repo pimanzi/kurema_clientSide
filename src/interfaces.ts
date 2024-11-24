@@ -48,3 +48,13 @@ export interface AuthUsers {
   lastName: string;
   email: string;
 }
+
+export interface Review {
+  created_at: string;
+  id: number;
+  names: string;
+  email: string;
+  comment: number;
+  rate: number;
+  artId: number;
+}

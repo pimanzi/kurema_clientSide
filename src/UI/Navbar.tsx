@@ -1,12 +1,15 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { RiArrowDropDownLine, RiArrowDropUpLine } from "react-icons/ri";
-import { NavLink, useNavigate } from "react-router-dom";
+import { NavLink, useNavigate, useLocation } from "react-router-dom";
 import { HoverCardDemo } from "./HoverCard";
 import { scroller, Link as ScrollerLink } from "react-scroll";
 
 export default function Navbar() {
   const navigate = useNavigate();
+  const location = useLocation(); // Use useLocation to track pathname
   const [isHovered, setIsHovered] = useState(false);
+
+  // Scroll to the top of the page on route change
   const handleNavigation = (section: string) => {
     if (location.pathname === "/home") {
       scroller.scrollTo(section, {
@@ -15,6 +18,8 @@ export default function Navbar() {
         offset: -50,
       });
     } else {
+      // Scroll to the top of the page first
+      window.scrollTo(0, 0); // This will scroll to the top
       navigate(`/home#${section}`);
       setTimeout(() => {
         scroller.scrollTo(section, {
@@ -25,6 +30,12 @@ export default function Navbar() {
       }, 100);
     }
   };
+
+  // Ensure the page scrolls to top when navigating directly to any page (e.g., catalog)
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, [location]); // Track changes in location
+
   return (
     <ul className="flex items-center gap-6">
       {/* Home */}

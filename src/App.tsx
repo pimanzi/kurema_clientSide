@@ -9,6 +9,7 @@ import { ReactQueryDevtools } from "@tanstack/react-query-devtools";
 import ProtectedRoute from "./UI/protectedRoute";
 import Account from "./pages/Account";
 import PersonalInfo from "./UI/PersonalInfo";
+import ManageArts from "./features/Arts/ManageArts";
 
 const queryClient = new QueryClient({
   defaultOptions: {
@@ -45,9 +46,15 @@ export default function App() {
                 index
                 element={<Navigate replace to="personalInfo"></Navigate>}
               ></Route>
+
               <Route
                 element={<PersonalInfo></PersonalInfo>}
                 path="personalInfo"
+              ></Route>
+
+              <Route
+                element={<ManageArts></ManageArts>}
+                path="manageArts"
               ></Route>
             </Route>
           </Route>

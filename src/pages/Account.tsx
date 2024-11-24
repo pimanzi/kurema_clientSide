@@ -1,4 +1,4 @@
-import AccountNav from "@/components/ui/AccountNav";
+import AccountNav from "@/UI/AccountNav";
 import { Outlet } from "react-router-dom";
 
 export default function Account() {

@@ -39,3 +39,12 @@ export interface Art {
   price: number;
   name: string;
 }
+
+export interface AuthUsers {
+  id: number;
+  authUserId: UUID;
+  avatar: string;
+  firstName: string;
+  lastName: string;
+  email: string;
+}

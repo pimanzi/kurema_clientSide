@@ -29,12 +29,14 @@ export default function AccountNav() {
           Manage Your Arts
         </NavLink>
       </li>
-      <li className="block px-2 py-2 font-poppins text-base font-medium text-red-500 transition-[background-color] duration-300 hover:bg-red-100 hover:font-semibold">
-        <button onClick={() => logout()} disabled={isLoggingOut}>
-          {" "}
-          Log out
-        </button>
-      </li>
+
+      <button
+        className="block w-full px-2 py-2 text-left font-poppins text-base font-medium text-red-500 transition-all duration-300 hover:bg-red-200"
+        onClick={() => logout()}
+        disabled={isLoggingOut}
+      >
+        Sign Out
+      </button>
     </ul>
   );
 }

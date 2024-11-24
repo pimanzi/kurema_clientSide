@@ -25,7 +25,7 @@ export interface FormData {
   category: string;
 }
 
-export function CreateArt({ id }: { id: number | null }) {
+export function CreateArt({ id }: { id: number | null | undefined }) {
   const [open, setOpen] = useState(false);
   const { createArt, isCreating } = useCreateArt();
   console.log(id);
@@ -177,7 +177,7 @@ export function CreateArt({ id }: { id: number | null }) {
             <button
               disabled={isCreating}
               type="submit"
-              className="flex items-center gap-1 rounded-md bg-[#ffcb05] px-4 py-2 font-poppins text-base font-medium text-black hover:bg-[#fcde51;]"
+              className="flex items-center gap-1 rounded-md bg-[#ffcb05] px-4 py-2 font-poppins text-base font-medium text-black hover:bg-[#fcde51;] disabled:bg-[#fcde51]"
             >
               Create Art
             </button>

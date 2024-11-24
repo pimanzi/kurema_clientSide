@@ -9,7 +9,7 @@ import {
 } from "@/components/ui/select";
 import { CreateArt } from "./CreateArt";
 
-export default function ArtsActions({ id }: { id: number | null }) {
+export default function ArtsActions({ id }: { id: number | null | undefined }) {
   return (
     <div className="flex items-center justify-end gap-3">
       <CreateArt id={id}></CreateArt>

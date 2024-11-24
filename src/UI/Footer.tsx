@@ -5,7 +5,7 @@ import { RiInstagramLine } from "react-icons/ri";
 export default function Footer() {
   const year = new Date().getFullYear();
   return (
-    <footer className="bg-[#202020] px-[18vw] py-[8vh]">
+    <footer id="contact" className="bg-[#202020] px-[18vw] py-[8vh]">
       <div className="flex items-start justify-between">
         <div className="flex flex-col gap-5">
           <img

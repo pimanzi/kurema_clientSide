@@ -7,7 +7,7 @@ export default function Home() {
   return (
     <>
       {" "}
-      <section>
+      <section id="home">
         <LandingCarousel></LandingCarousel>
       </section>
       <About></About>

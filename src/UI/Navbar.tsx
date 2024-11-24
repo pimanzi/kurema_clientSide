@@ -29,13 +29,18 @@ export default function Navbar() {
     <ul className="flex items-center gap-6">
       {/* Home */}
       <li className="relative">
-        <NavLink
-          className="relative block transition-all duration-300 hover:scale-x-110"
-          to="/home"
+        <ScrollerLink
+          to="home"
+          spy={true}
+          smooth={true}
+          duration={500}
+          offset={-50}
+          onClick={() => handleNavigation("about")}
+          className="block cursor-pointer font-poppins transition-all duration-300 hover:scale-x-110"
         >
           Home
           <span className="linkHover absolute left-0 top-[25px] h-[2px] w-0 origin-left bg-black transition-all duration-300 group-hover:w-full" />
-        </NavLink>
+        </ScrollerLink>
       </li>
 
       {/* About */}
@@ -100,13 +105,19 @@ export default function Navbar() {
 
       {/* Contact */}
       <li className="relative">
-        <a
+        <ScrollerLink
+          to="contact"
+          spy={true}
+          smooth={true}
+          duration={500}
+          offset={-50}
+          onClick={() => handleNavigation("contact")}
           className="relative block font-poppins transition-all duration-300 hover:scale-x-110"
-          href="#contact"
+          href="#arts"
         >
           Contact
           <span className="linkHover absolute left-0 top-[25px] h-[2px] w-0 origin-left bg-black transition-all duration-300 group-hover:w-full" />
-        </a>
+        </ScrollerLink>
       </li>
 
       {/* Join Us */}

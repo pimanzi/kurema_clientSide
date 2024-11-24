@@ -1,3 +1,4 @@
+import { useAuthUsers } from "../Authentication/useAuthUsers.tsx";
 import useUser from "../Authentication/useUser.tsx";
 import ArtsActions from "./ArtsActions.tsx";
 import ArtsShow from "./ArtsShow.tsx";
@@ -8,26 +9,11 @@ export default function ManageArts() {
   const { user } = useUser();
   const userId = user?.id;
   const { arts } = useArts();
+  const { authUsers, isLoading: isAuthUsersLoading } = useAuthUsers();
 
-  // Filter arts based on the logged-in user
-  const artsShow = arts?.filter(
-    (art) => art.authUsers && art.authUsers.authUserId === userId,
-  );
-
-  // Get userId from the first art if available
-  const id = artsShow && artsShow.length > 0 ? artsShow[0].userId : null;
-
-  if (!artsShow || artsShow.length === 0) {
-    return (
-      <div className="flex h-[40vh] items-center justify-center gap-4">
-        <p>
-          You haven’t added any art yet. Click 'New Art' to showcase your
-          talent!
-        </p>
-        <CreateArt id={id} />
-      </div>
-    );
-  }
+  const authUser = authUsers?.find((user) => user.authUserId === userId);
+  const id = authUser?.id;
+  const artsShow = arts?.filter((art) => art.userId === id);
 
   return (
     <div className="mb-[100px] mt-[80px] space-y-9">
@@ -40,8 +26,24 @@ export default function ManageArts() {
           </span>
         </p>
       </div>
-      <ArtsActions id={id} />
-      <ArtsShow />
+      {isAuthUsersLoading ? (
+        <div className="flex h-screen items-center justify-center bg-white">
+          <div className="loader"></div>
+        </div>
+      ) : artsShow?.length === 0 ? (
+        <div className="flex h-[30vh] flex-col items-center justify-center gap-4">
+          <p className="text-lg text-gray-600">
+            You haven’t added any art yet. Click 'New Art' to showcase your
+            talent!
+          </p>
+          <CreateArt id={id} />
+        </div>
+      ) : (
+        <>
+          <ArtsActions id={id} />
+          <ArtsShow arts={artsShow} />
+        </>
+      )}
     </div>
   );
 }

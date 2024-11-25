@@ -13,7 +13,7 @@ export function useCreateReview() {
     mutationFn: (review: ReviewForm) => insertReviews(review),
     onSuccess: () => {
       queryClient.invalidateQueries({ queryKey: ["reviews"] });
-      toast.success(t("toastSuccessArtCreation"));
+      toast.success(t("New review was successfully created"));
     },
     onError: (err) => toast.error(err.message),
   });

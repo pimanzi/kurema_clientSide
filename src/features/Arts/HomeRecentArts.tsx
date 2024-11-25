@@ -4,8 +4,10 @@ import { Card, CardContent } from "@/components/ui/card";
 import { GrCart } from "react-icons/gr";
 import Slider from "react-slick";
 import { useNavigate } from "react-router-dom";
+import { useTranslation } from "react-i18next";
 
 const HomeRecentArts = () => {
+  const { t } = useTranslation();
   const navigate = useNavigate();
   const { arts } = useRecentArts();
   const artsShow = arts?.slice(0, 9); // Get the first 9 items
@@ -38,7 +40,7 @@ const HomeRecentArts = () => {
   return (
     <div className="mb-[200px] mt-[100px] h-[500px] px-[19vw]">
       <h2 className="mb-[90px] text-center font-playfair text-4xl font-extrabold">
-        Latest Artworks
+        {t("latestArtworks")}
       </h2>
       <Slider {...settings}>
         {artsShow?.map((art, index) => (
@@ -60,7 +62,7 @@ const HomeRecentArts = () => {
 
                     <div className="absolute inset-0 flex items-center justify-center opacity-0 transition-opacity duration-300 group-hover:opacity-100">
                       <button className="flex items-center gap-2 rounded-full bg-[#ffcb05] px-4 py-2 font-poppins text-base font-medium text-black hover:bg-[#fcde51;]">
-                        <GrCart /> Add to Cart
+                        <GrCart /> {t("addCart")}
                       </button>
                     </div>
                   </div>

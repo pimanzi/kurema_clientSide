@@ -16,6 +16,7 @@ import { SelectForm } from "../../UI/SelectForm";
 import { useCreateArt } from "./useCreateArt";
 
 import { IoMdAdd } from "react-icons/io";
+import { useTranslation } from "react-i18next";
 
 export interface FormData {
   name: string;
@@ -28,7 +29,7 @@ export interface FormData {
 export function CreateArt({ id }: { id: number | null | undefined }) {
   const [open, setOpen] = useState(false);
   const { createArt, isCreating } = useCreateArt();
-  console.log(id);
+  const { t } = useTranslation();
 
   const {
     control,
@@ -65,24 +66,26 @@ export function CreateArt({ id }: { id: number | null | undefined }) {
       <DialogTrigger asChild>
         <button className="flex items-center gap-1 rounded-md bg-[#ffcb05] px-4 py-2 font-poppins text-base font-medium text-black hover:bg-[#fcde51;]">
           <IoMdAdd />
-          <span>New Art</span>
+          <span>{t("newArtButton")}</span>
         </button>
       </DialogTrigger>
       <DialogContent className="w-[450px] rounded border border-gray-300 bg-white p-6">
         <DialogHeader>
-          <DialogTitle>Create New Art</DialogTitle>
+          <DialogTitle>{t("newArtFormTitle")}</DialogTitle>
           <DialogDescription className="text-gray-600">
-            Fill in the details to add your artwork.
+            {t("newArtFromCallAction")}
           </DialogDescription>
         </DialogHeader>
         <form className="flex flex-col gap-6" onSubmit={handleSubmit(onSubmit)}>
           <div>
             <Input
               id="name"
-              placeholder="Enter artwork name"
+              placeholder={t("newArtInputNameField")}
               type="text"
               disabled={isCreating}
-              {...register("name", { required: "Name is required" })}
+              {...register("name", {
+                required: t("newArtInputNameFieldError"),
+              })}
             />
             {errors.name && (
               <span className="text-xs text-red-500">
@@ -93,14 +96,14 @@ export function CreateArt({ id }: { id: number | null | undefined }) {
           <div>
             <Controller
               name="description"
-              rules={{ required: "Description is required" }}
+              rules={{ required: t("newArtInputDescriptionFieldError") }}
               control={control}
               render={({ field }) => (
                 <TextareaUi
                   {...field}
                   value={field.value}
                   disabled={isCreating}
-                  placeholder="Enter artwork description"
+                  placeholder={t("newArtInputDescriptionField")}
                 ></TextareaUi>
               )}
             />
@@ -118,10 +121,12 @@ export function CreateArt({ id }: { id: number | null | undefined }) {
                   accept="image/*"
                   style={{ display: "none" }}
                   id="image"
-                  {...register("image", { required: "Image is required" })}
+                  {...register("image", {
+                    required: t("newArtInputImageError"),
+                  })}
                   disabled={isCreating}
                 />
-                <span>{imageFile?.name || "Upload an image"}</span>
+                <span>{imageFile?.name || t("newArtInputImage")}</span>
               </label>
             </div>
             {errors.image && (
@@ -134,11 +139,11 @@ export function CreateArt({ id }: { id: number | null | undefined }) {
           <div>
             <Input
               id="price"
-              placeholder="Enter price"
+              placeholder={t("newArtInputPrice")}
               type="number"
               step="0.01"
               disabled={isCreating}
-              {...register("price", { required: "Price is required" })}
+              {...register("price", { required: t("newArtInputPriceError") })}
             />
             {errors.price && (
               <span className="text-xs text-red-500">
@@ -150,7 +155,7 @@ export function CreateArt({ id }: { id: number | null | undefined }) {
             <Controller
               name="category"
               control={control}
-              rules={{ required: "Category is required" }}
+              rules={{ required: t("newArtSelectCategoryError") }}
               render={({ field }) => (
                 <SelectForm
                   {...field}
@@ -172,14 +177,14 @@ export function CreateArt({ id }: { id: number | null | undefined }) {
               type="reset"
               className="rounded border border-gray-300 bg-transparent px-4 py-2 text-gray-800 hover:bg-gray-200"
             >
-              Clear
+              {t("newArtClearButton")}
             </button>
             <button
               disabled={isCreating}
               type="submit"
               className="flex items-center gap-1 rounded-md bg-[#ffcb05] px-4 py-2 font-poppins text-base font-medium text-black hover:bg-[#fcde51;] disabled:bg-[#fcde51]"
             >
-              Create Art
+              {t("newArtCreateButton")}
             </button>
           </DialogFooter>
         </form>

@@ -7,6 +7,7 @@ import {
   SelectTrigger,
   SelectValue,
 } from "@/components/ui/select";
+import { useTranslation } from "react-i18next";
 
 interface SelectFormProps {
   onChange: (value: string) => void;
@@ -22,6 +23,7 @@ export function SelectForm({
   name,
   disabled,
 }: SelectFormProps) {
+  const { t } = useTranslation();
   return (
     <Select
       onValueChange={onChange}
@@ -30,23 +32,23 @@ export function SelectForm({
       disabled={disabled}
     >
       <SelectTrigger className="w-fit bg-white text-black focus:border-transparent focus:ring focus:ring-[#ffcb05] focus-visible:outline-none">
-        <SelectValue placeholder="Category" />
+        <SelectValue placeholder={t("categoryTitle")} />
       </SelectTrigger>
       <SelectContent>
         <SelectGroup>
-          <SelectLabel>Select category</SelectLabel>
+          <SelectLabel>{t("selectCategory")}</SelectLabel>
           <SelectItem className="hover:!bg-[#ffcb05]" value="painting">
-            Painting
+            {t("painting")}
           </SelectItem>
           <SelectItem className="hover:!bg-[#ffcb05]" value="sculpture">
-            Sculpture
+            {t("sculpture")}
           </SelectItem>
 
           <SelectItem className="hover:!bg-[#ffcb05]" value="fabric">
-            Fabric
+            {t("fabric")}
           </SelectItem>
           <SelectItem className="hover:!bg-[#ffcb05]" value="photography">
-            Photography
+            {t("photography")}
           </SelectItem>
         </SelectGroup>
       </SelectContent>

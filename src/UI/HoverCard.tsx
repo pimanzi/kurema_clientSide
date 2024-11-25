@@ -3,9 +3,11 @@ import {
   HoverCardContent,
   HoverCardTrigger,
 } from "@/components/ui/hover-card";
+import { useTranslation } from "react-i18next";
 import { NavLink } from "react-router-dom";
 
 export function HoverCardDemo({ children }: { children: React.ReactNode }) {
+  const { t } = useTranslation();
   return (
     <HoverCard>
       <HoverCardTrigger asChild>{children}</HoverCardTrigger>
@@ -13,24 +15,24 @@ export function HoverCardDemo({ children }: { children: React.ReactNode }) {
         <ul className="w-full space-y-2">
           <li className="w-full py-3 text-center hover:bg-[#ffcb05]">
             <NavLink to="/catalog?category=painting" className="w-full">
-              Paintings
+              {t("paintings")}
             </NavLink>
           </li>
           <li className="w-full py-3 text-center hover:bg-[#ffcb05]">
             <NavLink to="/catalog?category=sculpture" className="w-full">
-              Sculpture
+              {t("sculptures")}
             </NavLink>
           </li>
 
           <li className="w-full py-3 text-center hover:bg-[#ffcb05]">
             <NavLink to="/catalog?category=fabric" className="w-full">
-              Fabrics
+              {t("fabrics")}
             </NavLink>
           </li>
 
           <li className="w-full py-3 text-center hover:bg-[#ffcb05]">
             <NavLink to="/catalog?category=photography" className="w-full">
-              Photography
+              {t("photographies")}
             </NavLink>
           </li>
         </ul>

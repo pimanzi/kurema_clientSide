@@ -16,7 +16,7 @@ export function useDeleteArt() {
       // Call refetch directly to ensure the arts are reloaded
       refetch();
 
-      toast.success(t("toastSuccessDeleteTask"));
+      toast.success(t("toastSuccessDeleteArt"));
     },
     onError: (err) => toast.error(err.message),
   });

@@ -2,44 +2,46 @@ import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import { motion } from "framer-motion";
+import { useTranslation } from "react-i18next";
 
 const LandingCarousel = () => {
+  const { t } = useTranslation();
   const slides = [
     {
       image: "/Images/carousel/eye_hub.jpeg",
-      text: "Art that inspires creativity",
+      text: t("phrase1"),
     },
     {
       image: "/Images/carousel/woman.jpeg",
-      text: "A splash of colors and emotions",
+      text: t("phrase2"),
     },
     {
       image: "/Images/carousel/hallowen_carousel.jpeg",
-      text: "Where imagination meets reality",
+      text: t("phrase3"),
     },
     {
       image: "/Images/carousel/photograph_carousel.jpeg",
-      text: "Experience the power of art",
+      text: t("phrase4"),
     },
     {
       image: "/Images/carousel/hands_carousel.jpeg",
-      text: "Colors that tell stories",
+      text: t("phrase5"),
     },
     {
       image: "/Images/carousel/sculpture1_carousel.jpeg",
-      text: "Art that speaks to the soul",
+      text: t("phrase6"),
     },
     {
       image: "/Images/carousel/sculpture3_carousel.jpeg",
-      text: "Discover creativity unleashed",
+      text: t("phrase7"),
     },
     {
       image: "/Images/carousel/horse_hub.jpeg",
-      text: "Moments captured in art",
+      text: t("phrase8"),
     },
     {
       image: "/Images/carousel/acoustic.jpeg",
-      text: "The magic of artistic expression",
+      text: t("phrase9"),
     },
   ];
 

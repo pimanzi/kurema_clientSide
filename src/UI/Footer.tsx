@@ -1,8 +1,10 @@
+import { useTranslation } from "react-i18next";
 import { FaLinkedinIn, FaPhoneAlt } from "react-icons/fa";
 import { MdEmail } from "react-icons/md";
 import { RiInstagramLine } from "react-icons/ri";
 
 export default function Footer() {
+  const { t } = useTranslation();
   const year = new Date().getFullYear();
   return (
     <footer id="contact" className="bg-[#202020] px-[18vw] py-[8vh]">
@@ -15,10 +17,9 @@ export default function Footer() {
           ></img>
           {/* socials */}
           <p className="font-poppins font-light text-white">
-            Celebrating art, creativity, and innovation.<br></br>
-            <span className="text-[#ffcb05]">
-              Explore, rate, and own inspiring artwork
-            </span>
+            {t("footerCall")}
+            <br></br>
+            <span className="text-[#ffcb05]">{t("footerCall2")}</span>
           </p>
           <div className="flex items-center gap-5">
             <div className="flex h-[40px] w-[40px] items-center justify-center rounded-full bg-[#ffcb05]">
@@ -33,20 +34,20 @@ export default function Footer() {
         {/* company links */}
         <div>
           <h3 className="mb-7 font-poppins text-xl font-semibold text-[#ffcb05]">
-            Company
+            {t("footerCompany")}
           </h3>
           <ul className="space-y-2">
             <li className="font-light text-white transition-all duration-300 hover:underline">
-              FAQ
+              {t("footerFaq")}
             </li>
             <li className="font-light text-white transition-all duration-300 hover:underline">
-              About Us
+              {t("footerAbout")}
             </li>
             <li className="font-light text-white transition-all duration-300 hover:underline">
-              Cart
+              {t("footerCart")}
             </li>
             <li className="font-light text-white transition-all duration-300 hover:underline">
-              Catalogue
+              {t("footerCatalogue")}
             </li>
           </ul>
         </div>
@@ -55,7 +56,7 @@ export default function Footer() {
 
         <div>
           <h3 className="mb-7 font-poppins text-xl font-semibold text-[#ffcb05]">
-            Get In Touch
+            {t("getInTouch")}
           </h3>
           <div className="mb-2 flex items-center gap-4">
             <div className="flex h-[25px] w-[25px] items-center justify-center rounded-full bg-[#ffcb05]">
@@ -73,14 +74,14 @@ export default function Footer() {
               className="font-light text-white"
               href="mailto:imanzikabisa@gmail.com"
             >
-              kurema Hub Email
+              kurema Hub {t("emailInput")}
             </a>
           </div>
         </div>
       </div>
       <hr className="mb-[10px] mt-[100px] font-light text-white"></hr>
       <p className="text-center font-light text-white">
-        &copy; {year}. ALL RIGHTS RESERVED
+        &copy; {year}. {t("allRightsReserved")}
       </p>
     </footer>
   );

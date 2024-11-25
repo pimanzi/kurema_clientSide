@@ -58,3 +58,11 @@ export interface Review {
   rate: number;
   artId: number;
 }
+
+export interface ReviewForm {
+  names: string;
+  email: string;
+  comment: string;
+  rate: number;
+  artId: number;
+}

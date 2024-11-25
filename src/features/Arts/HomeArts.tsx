@@ -11,16 +11,18 @@ import {
 import { useArts } from "./useArts";
 import { formatCurrency } from "@/utils/helpers";
 import { useNavigate } from "react-router-dom";
+import { useTranslation } from "react-i18next";
 
 export default function HomeArts() {
   const navigate = useNavigate();
   const { arts } = useArts();
   const artsShow = arts?.slice(0, 9);
+  const { t } = useTranslation();
 
   return (
     <div className="mb-[50px] mt-[30px] w-full">
       <h2 className="mb-[90px] text-center font-playfair text-4xl font-extrabold">
-        Featured Artworks
+        {t("featuredArtworks")}
       </h2>
       {artsShow && artsShow.length > 0 ? (
         <Carousel className="relative w-full px-[18vw]">
@@ -44,7 +46,7 @@ export default function HomeArts() {
 
                         <div className="absolute inset-0 flex items-center justify-center opacity-0 transition-opacity duration-300 group-hover:opacity-100">
                           <button className="flex items-center gap-2 rounded-full bg-[#ffcb05] px-4 py-2 font-poppins text-base font-medium text-black hover:bg-[#fcde51;]">
-                            <GrCart /> Add to Cart
+                            <GrCart /> {t("addCart")}
                           </button>
                         </div>
                       </div>
@@ -68,11 +70,14 @@ export default function HomeArts() {
           <CarouselNext className="absolute right-6 flex h-[50px] w-[50px] items-center justify-center rounded-full bg-[#ffcb05] text-black hover:bg-[#fcde51;] hover:text-black"></CarouselNext>
         </Carousel>
       ) : (
-        <p>No arts available to display.</p>
+        <p>{t("homeNoArts")}</p>
       )}
       <div className="flex w-full justify-center">
-        <button className="mx-auto mt-7 rounded-full bg-[#ffcb05] px-5 py-4 font-poppins text-lg font-medium text-black hover:bg-[#fcde51;]">
-          View More Arts
+        <button
+          onClick={() => navigate("/catalog")}
+          className="mx-auto mt-7 rounded-full bg-[#ffcb05] px-5 py-4 font-poppins text-lg font-medium text-black hover:bg-[#fcde51;]"
+        >
+          {t("viewMoreArts")}
         </button>
       </div>
     </div>

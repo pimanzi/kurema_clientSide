@@ -1,3 +1,4 @@
+import { useTranslation } from "react-i18next";
 import { useSearchParams } from "react-router-dom";
 
 export default function CatalogNav() {
@@ -8,6 +9,7 @@ export default function CatalogNav() {
   }
 
   const choosenCategory = searchParams.get("category") || "all";
+  const { t } = useTranslation();
   return (
     <ul className="space-y-4">
       <li
@@ -18,7 +20,7 @@ export default function CatalogNav() {
             : "block px-2 py-2 font-poppins text-base font-medium transition-all duration-300 hover:cursor-pointer hover:bg-[#ffcb05]"
         }
       >
-        All
+        {t("all")}
       </li>
       <li
         onClick={() => handleClick("painting")}
@@ -28,7 +30,7 @@ export default function CatalogNav() {
             : "block px-2 py-2 font-poppins text-base font-medium transition-all duration-300 hover:cursor-pointer hover:bg-[#ffcb05]"
         }
       >
-        Paintings
+        {t("paintings")}
       </li>
       <li
         onClick={() => handleClick("sculpture")}
@@ -38,7 +40,7 @@ export default function CatalogNav() {
             : "block px-2 py-2 font-poppins text-base font-medium transition-all duration-300 hover:cursor-pointer hover:bg-[#ffcb05]"
         }
       >
-        Sculptures
+        {t("sculptures")}
       </li>
       <li
         onClick={() => handleClick("fabric")}
@@ -48,7 +50,7 @@ export default function CatalogNav() {
             : "block px-2 py-2 font-poppins text-base font-medium transition-all duration-300 hover:cursor-pointer hover:bg-[#ffcb05]"
         }
       >
-        Fabrics
+        {t("fabrics")}
       </li>
       <li
         onClick={() => handleClick("photography")}
@@ -58,7 +60,7 @@ export default function CatalogNav() {
             : "block px-2 py-2 font-poppins text-base font-medium transition-all duration-300 hover:cursor-pointer hover:bg-[#ffcb05]"
         }
       >
-        Photographies
+        {t("photographies")}
       </li>
     </ul>
   );

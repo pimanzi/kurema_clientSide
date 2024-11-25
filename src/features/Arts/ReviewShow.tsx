@@ -9,21 +9,21 @@ import {
 } from "@/components/ui/carousel";
 import Stars from "@/UI/Stars";
 import { formatShortDate } from "@/utils/helpers";
+import { useTranslation } from "react-i18next";
 
 export default function ReviewShow({ reviews }: { reviews: Review[] }) {
+  const { t } = useTranslation();
   if (reviews.length === 0) {
     return (
       <div className="py-6 text-center">
-        <h2 className="text-base font-medium text-gray-600">
-          No review yet, Be the first to review the art
-        </h2>
+        <h2 className="text-base font-medium text-gray-600">{t("noReview")}</h2>
       </div>
     );
   }
 
   return (
     <div className={reviews.length === 1 ? "relative" : "relative px-4"}>
-      <h2 className="text-center text-lg font-medium">Reviews</h2>
+      <h2 className="text-center text-lg font-medium">{t("reviewTitle")}</h2>
       {/* Carousel for Reviews */}
       <Carousel className="w-full">
         <CarouselContent>

@@ -1,11 +1,13 @@
+import { useTranslation } from "react-i18next";
 import { FaComments, FaPalette } from "react-icons/fa";
 import { FaSackDollar } from "react-icons/fa6";
 
 export default function About() {
+  const { t } = useTranslation();
   return (
     <section id="about" className="px-[12vw] pb-[100px] pt-[80px]">
       <h2 className="mb-9 text-center font-playfair text-4xl font-extrabold">
-        Why To Choose Us
+        {t("aboutTitle")}
       </h2>
       <div className="flex items-center gap-3 pt-8">
         <div className="flex w-[500px] flex-col items-center px-3">
@@ -13,12 +15,9 @@ export default function About() {
             <FaPalette size={80} />
           </div>
           <h3 className="mb-4 mt-4 font-playfair text-xl font-bold">
-            Exclusive Art Collection
+            {t("aboutReason1")}
           </h3>
-          <p className="text-center font-poppins">
-            Discover unique, high-quality artwork from talented artists across
-            the globe, handpicked for your enjoyment.
-          </p>
+          <p className="text-center font-poppins">{t("aboutDescription1")}</p>
         </div>
         <div className="flex w-[500px] flex-col items-center px-3">
           <div className="flex h-[140px] w-[140px] items-center justify-center rounded-full bg-[#ffcd05]">
@@ -26,24 +25,18 @@ export default function About() {
           </div>
 
           <h3 className="mb-4 mt-4 font-playfair text-xl font-bold">
-            Customer-Centric Experience
+            {t("aboutReason2")}
           </h3>
-          <p className="text-center font-poppins">
-            Share your feedback and ratings to help guide fellow art lovers and
-            support artists in their creative journey.
-          </p>
+          <p className="text-center font-poppins">{t("aboutDescription2")}</p>
         </div>
         <div className="flex w-[500px] flex-col items-center px-3">
           <div className="flex h-[140px] w-[140px] items-center justify-center rounded-full bg-[#ffcd05]">
             <FaSackDollar size={80} />
           </div>
           <h3 className="mb-4 mt-4 font-playfair text-xl font-bold">
-            Affordable Pricing
+            {t("aboutReason3")}
           </h3>
-          <p className="text-center font-poppins">
-            Enjoy competitive prices and special deals, making stunning artwork
-            accessible for every budget.
-          </p>
+          <p className="text-center font-poppins">{t("aboutDescription3")}</p>
         </div>
       </div>
     </section>

@@ -3,8 +3,10 @@ import { RiArrowDropDownLine, RiArrowDropUpLine } from "react-icons/ri";
 import { NavLink, useNavigate, useLocation } from "react-router-dom";
 import { HoverCardDemo } from "./HoverCard";
 import { scroller, Link as ScrollerLink } from "react-scroll";
+import { useTranslation } from "react-i18next";
 
 export default function Navbar() {
+  const { t } = useTranslation();
   const navigate = useNavigate();
   const location = useLocation(); // Use useLocation to track pathname
   const [isHovered, setIsHovered] = useState(false);
@@ -49,7 +51,7 @@ export default function Navbar() {
           onClick={() => handleNavigation("about")}
           className="block cursor-pointer font-poppins transition-all duration-300 hover:scale-x-110"
         >
-          Home
+          {t("navHome")}
           <span className="linkHover absolute left-0 top-[25px] h-[2px] w-0 origin-left bg-black transition-all duration-300 group-hover:w-full" />
         </ScrollerLink>
       </li>
@@ -65,7 +67,7 @@ export default function Navbar() {
           onClick={() => handleNavigation("about")}
           className="block cursor-pointer font-poppins transition-all duration-300 hover:scale-x-110"
         >
-          About
+          {t("footerAbout")}
           <span className="linkHover absolute left-0 top-[25px] h-[2px] w-0 origin-left bg-black transition-all duration-300 group-hover:w-full" />
         </ScrollerLink>
       </li>
@@ -82,7 +84,7 @@ export default function Navbar() {
           className="relative block font-poppins transition-all duration-300 hover:scale-x-110"
           href="#arts"
         >
-          Arts
+          {t("navArts")}
           <span className="linkHover absolute left-0 top-[25px] h-[2px] w-0 origin-left bg-black transition-all duration-300 group-hover:w-full" />
         </ScrollerLink>
       </li>
@@ -98,7 +100,7 @@ export default function Navbar() {
             className="relative flex items-center font-poppins transition-all duration-300 hover:scale-x-110"
             to="/catalog"
           >
-            Catalog
+            {t("footerCatalogue")}
             {isHovered ? (
               <RiArrowDropUpLine
                 className="ml[-4px]"
@@ -126,7 +128,7 @@ export default function Navbar() {
           className="relative block font-poppins transition-all duration-300 hover:scale-x-110"
           href="#arts"
         >
-          Contact
+          {t("navContact")}
           <span className="linkHover absolute left-0 top-[25px] h-[2px] w-0 origin-left bg-black transition-all duration-300 group-hover:w-full" />
         </ScrollerLink>
       </li>
@@ -136,7 +138,7 @@ export default function Navbar() {
       {/* Cart */}
       <li>
         <NavLink className="font-poppins" to="/cart">
-          Cart
+          {t("footerCart")}
         </NavLink>
       </li>
     </ul>

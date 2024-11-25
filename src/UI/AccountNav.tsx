@@ -1,8 +1,10 @@
 import useLogout from "@/features/Authentication/useLogoutUser";
+import { useTranslation } from "react-i18next";
 import { NavLink } from "react-router-dom";
 
 export default function AccountNav() {
   const { logout, isLoggingOut } = useLogout();
+  const { t } = useTranslation();
   return (
     <ul className="space-y-4">
       <li>
@@ -14,7 +16,7 @@ export default function AccountNav() {
               : "block px-2 py-2 font-poppins text-base font-medium transition-all duration-300 hover:bg-[#ffcb05]"
           }
         >
-          Personal Info
+          {t("accountPersonalInfo")}
         </NavLink>
       </li>
       <li>
@@ -26,7 +28,7 @@ export default function AccountNav() {
               : "block px-2 py-2 font-poppins text-base font-medium transition-all duration-300 hover:bg-[#ffcb05]"
           }
         >
-          Manage Your Arts
+          {t("accountManageArts")}
         </NavLink>
       </li>
 
@@ -35,7 +37,7 @@ export default function AccountNav() {
         onClick={() => logout()}
         disabled={isLoggingOut}
       >
-        Sign Out
+        {t("logout")}
       </button>
     </ul>
   );

@@ -3,20 +3,22 @@ import { useArts } from "./useArts";
 import { Card, CardContent } from "@/components/ui/card";
 import { formatCurrency } from "@/utils/helpers";
 import { LeaveReview } from "./LeaveReview";
-import { useReviews } from "./useReviews";
+import { useReviews } from "../Reviews/useReviews";
 import Stars from "@/UI/Stars";
 import ReviewShow from "./ReviewShow";
+import { useTranslation } from "react-i18next";
 
 export function ArtDetailed() {
+  const { t } = useTranslation();
   const { reviews } = useReviews();
   const { id } = useParams();
   const { arts } = useArts();
   const artShow = arts?.find((art) => art.id === Number(id));
   const Author =
-    artShow?.authUsers.firstName + " " + artShow?.authUsers.lastName;
+    artShow?.authUsers?.firstName + " " + artShow?.authUsers?.lastName;
 
-  const email = artShow?.authUsers.email;
-  const avatar = artShow?.authUsers.avatar;
+  const email = artShow?.authUsers?.email;
+  const avatar = artShow?.authUsers?.avatar;
   const artReviews =
     reviews?.filter((review) => review.artId === Number(id)) || [];
   const rateAverage = artReviews?.length
@@ -25,7 +27,7 @@ export function ArtDetailed() {
 
   console.log(rateAverage);
   return (
-    <div className="mt-8 grid grid-cols-[600px_1fr] gap-8">
+    <div className="mt-10 grid grid-cols-[600px_1fr] gap-8">
       {/* Left Column: Image */}
       <Card className="h-[600px]">
         <CardContent className="h-full p-0">
@@ -68,10 +70,10 @@ export function ArtDetailed() {
 
           <div>
             <p className="text-sm text-gray-600">
-              <span className="font-medium">Author names: </span> {Author}
+              <span className="font-medium">{t("authorNames")}</span> {Author}
             </p>
             <p className="text-sm text-gray-600">
-              <span className="font-medium">Author email:</span> {email}
+              <span className="font-medium">{t("authorEmail")}</span> {email}
             </p>
           </div>
         </div>
@@ -82,7 +84,7 @@ export function ArtDetailed() {
             {artShow?.description || "No description available."}
           </p>
           <p className="text-lg font-medium">
-            Price:{" "}
+            {t("artPrice")}{" "}
             <span className="font-bold text-[#ffcb05]">
               {artShow?.price ? formatCurrency(artShow.price) : "N/A"}
             </span>
@@ -92,9 +94,9 @@ export function ArtDetailed() {
         {/* Buttons */}
         <div className="space-y-4">
           <button className="flex w-full items-center justify-center gap-1 rounded-md bg-[#ffcb05] px-4 py-2 font-poppins text-base font-medium text-black hover:bg-[#fcde51;] disabled:bg-[#fcde51]">
-            Add to Cart
+            {t("addCart")}
           </button>
-          <LeaveReview></LeaveReview>
+          <LeaveReview id={Number(id)}></LeaveReview>
         </div>
         <ReviewShow reviews={artReviews}></ReviewShow>
       </div>

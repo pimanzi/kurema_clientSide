@@ -11,6 +11,7 @@ import Account from "./pages/Account";
 import PersonalInfo from "./UI/PersonalInfo";
 import ManageArts from "./features/Arts/ManageArts";
 import Art from "./pages/Art";
+import LanguageProvider from "./contexts/LanguageContext";
 
 const queryClient = new QueryClient({
   defaultOptions: {
@@ -24,64 +25,65 @@ export default function App() {
   return (
     <QueryClientProvider client={queryClient}>
       <ReactQueryDevtools initialIsOpen={false} />
-      <BrowserRouter>
-        <Routes>
-          <Route element={<AppLayout></AppLayout>}>
-            {" "}
-            <Route
-              index
-              element={<Navigate replace to="home"></Navigate>}
-            ></Route>
-            <Route element={<Home></Home>} path="home"></Route>
-            <Route element={<Catalog></Catalog>} path="catalog"></Route>
-            <Route element={<Cart></Cart>} path="cart"></Route>
-            <Route element={<Art></Art>} path="art/:id"></Route>
-            <Route
-              element={
-                <ProtectedRoute>
-                  <Account></Account>
-                </ProtectedRoute>
-              }
-              path="account"
-            >
+      <LanguageProvider>
+        <BrowserRouter>
+          <Routes>
+            <Route element={<AppLayout></AppLayout>}>
               <Route
                 index
-                element={<Navigate replace to="personalInfo"></Navigate>}
+                element={<Navigate replace to="home"></Navigate>}
               ></Route>
-
+              <Route element={<Home></Home>} path="home"></Route>
+              <Route element={<Catalog></Catalog>} path="catalog"></Route>
+              <Route element={<Cart></Cart>} path="cart"></Route>
+              <Route element={<Art></Art>} path="art/:id"></Route>
               <Route
-                element={<PersonalInfo></PersonalInfo>}
-                path="personalInfo"
-              ></Route>
+                element={
+                  <ProtectedRoute>
+                    <Account></Account>
+                  </ProtectedRoute>
+                }
+                path="account"
+              >
+                <Route
+                  index
+                  element={<Navigate replace to="personalInfo"></Navigate>}
+                ></Route>
 
-              <Route
-                element={<ManageArts></ManageArts>}
-                path="manageArts"
-              ></Route>
+                <Route
+                  element={<PersonalInfo></PersonalInfo>}
+                  path="personalInfo"
+                ></Route>
+
+                <Route
+                  element={<ManageArts></ManageArts>}
+                  path="manageArts"
+                ></Route>
+              </Route>
             </Route>
-          </Route>
-        </Routes>
-      </BrowserRouter>
-      <Toaster
-        position="top-center"
-        gutter={12}
-        containerStyle={{ margin: "8px" }}
-        toastOptions={{
-          success: {
-            duration: 3000,
-          },
-          error: {
-            duration: 5000,
-          },
-          style: {
-            fontSize: "16px",
-            maxWidth: "700px",
-            padding: "16px 24px",
-            backgroundColor: "#fff",
-            color: "#000",
-          },
-        }}
-      />
+          </Routes>
+        </BrowserRouter>
+        <Toaster
+          position="top-center"
+          gutter={12}
+          containerStyle={{ margin: "8px" }}
+          toastOptions={{
+            success: {
+              duration: 3000,
+            },
+            error: {
+              duration: 5000,
+            },
+            style: {
+              fontSize: "16px",
+              maxWidth: "700px",
+              padding: "16px 24px",
+              backgroundColor: "#fff",
+              color: "#000",
+            },
+          }}
+        />
+      </LanguageProvider>
     </QueryClientProvider>
   );
 }

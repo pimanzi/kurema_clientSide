@@ -3,6 +3,7 @@ import PropTypes from "prop-types";
 
 // Define the type for the Props
 interface StarsProps {
+  showRating?: boolean;
   maxStars?: number;
   color?: string;
   size?: number;
@@ -34,11 +35,12 @@ const starContainer: React.CSSProperties = {
 };
 
 const Stars: React.FC<StarsProps> = ({
+  showRating = false,
   maxStars = 5,
   color = "#fcc419",
   size = 48,
   className = "",
-  //   messages = [],
+  messages = [],
   //   defaultRating = 0,
   onSetRatingOutside,
   rating = 0, // This is the rating passed in
@@ -51,12 +53,12 @@ const Stars: React.FC<StarsProps> = ({
     }
   }
 
-  //   const textStyle: React.CSSProperties = {
-  //     lineHeight: "1",
-  //     margin: "0",
-  //     color,
-  //     fontSize: `${size / 1.5}px`,
-  //   };
+  const textStyle: React.CSSProperties = {
+    lineHeight: "1",
+    margin: "0",
+    color,
+    fontSize: `${size / 1.5}px`,
+  };
 
   return (
     <div style={mainContainer} className={className}>
@@ -73,11 +75,15 @@ const Stars: React.FC<StarsProps> = ({
           />
         ))}
       </div>
-      {/* <p style={textStyle}>
-        {messages.length === maxStars
-          ? messages[tempRating ? tempRating - 1 : rating - 1]
-          : tempRating || rating || ""}
-      </p> */}
+      {showRating ? (
+        <p style={textStyle}>
+          {messages.length === maxStars
+            ? messages[tempRating ? tempRating - 1 : rating - 1]
+            : tempRating || rating || ""}
+        </p>
+      ) : (
+        ""
+      )}
     </div>
   );
 };

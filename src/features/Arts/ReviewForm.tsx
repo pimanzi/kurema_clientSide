@@ -1,14 +1,25 @@
 import { useForm, Controller } from "react-hook-form";
 import { Input } from "@/components/ui/input";
 import { TextareaUi } from "../../UI/TextArea";
+import { useTranslation } from "react-i18next";
+import Stars from "@/UI/Stars";
+import { useState } from "react";
+import { useCreateReview } from "../Reviews/useCreateReview";
 
 interface ReviewFormData {
-  name: string;
+  names: string;
   email: string;
-  review: string;
+  comment: string;
+  rate: number;
 }
 
-export function AddReview() {
+export function AddReview({
+  id,
+  setOpen,
+}: {
+  id: number;
+  setOpen: (value: boolean) => void;
+}) {
   const {
     control,
     handleSubmit,
@@ -17,25 +28,37 @@ export function AddReview() {
     formState: { errors },
   } = useForm<ReviewFormData>();
 
+  const { createReview, isCreating } = useCreateReview();
+  const { t } = useTranslation();
+  const [rating, setRating] = useState<number>(0);
   const onSubmit = (data: ReviewFormData) => {
-    console.log("Review Submitted:", data);
-    // Handle review submission here (e.g., API call)
-    reset();
+    createReview(
+      {
+        ...data,
+        rate: rating,
+        artId: id,
+      },
+      {
+        onSettled: () => {
+          setOpen(false);
+          reset();
+        },
+      },
+    );
   };
-
   return (
     <div className="space-y-4 border-t border-gray-200 pt-6">
-      <h3 className="text-lg font-semibold">Leave a Review</h3>
+      <h3 className="text-lg font-semibold">{t("leaveReview")}</h3>
       <form className="flex flex-col gap-4" onSubmit={handleSubmit(onSubmit)}>
         {/* Name Field */}
         <div>
           <Input
             id="name"
-            placeholder="Your name"
-            {...register("name", { required: "Name is required" })}
+            placeholder={t("commentorName")}
+            {...register("names", { required: t("commentorNameError") })}
           />
-          {errors.name && (
-            <span className="text-xs text-red-500">{errors.name.message}</span>
+          {errors.names && (
+            <span className="text-xs text-red-500">{errors.names.message}</span>
           )}
         </div>
 
@@ -44,12 +67,12 @@ export function AddReview() {
           <Input
             id="email"
             type="email"
-            placeholder="Your email"
+            placeholder={t("commentorEmail")}
             {...register("email", {
-              required: "Email is required",
+              required: t("commentorEmailError"),
               pattern: {
                 value: /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,4}$/,
-                message: "Invalid email address",
+                message: t("commentorEmailMessageError"),
               },
             })}
           />
@@ -61,32 +84,49 @@ export function AddReview() {
         {/* Review Field */}
         <div>
           <Controller
-            name="review"
-            rules={{ required: "review is required" }}
+            name="comment"
+            rules={{ required: t("commentorReviewError") }}
             control={control}
             render={({ field }) => (
               <TextareaUi
                 {...field}
                 value={field.value}
                 disabled={false}
-                placeholder="Enter artwork review"
+                placeholder={t("commentorReview")}
               ></TextareaUi>
             )}
           />
-          {errors.review && (
+          {errors.comment && (
             <span className="text-xs text-red-500">
-              {errors.review.message}
+              {errors.comment.message}
             </span>
+          )}
+        </div>
+
+        <div className="space-y-2">
+          <Stars
+            rating={rating} // Current rating
+            maxStars={5}
+            color="#fcc419"
+            size={20}
+            showRating={true}
+            onSetRatingOutside={(newRating) => setRating(newRating)} // Update the rating
+          />
+          {rating > 0 && (
+            <p className="text-sm text-gray-600">
+              {t("selectedRating")}: {rating} / 5
+            </p>
           )}
         </div>
 
         {/* Submit Button */}
 
         <button
+          disabled={isCreating}
           type="submit"
           className="w-full rounded-md bg-[#ffcb05] py-2 text-sm font-medium text-black hover:bg-[#fcde51]"
         >
-          Submit Review
+          {t("submitReview")}
         </button>
       </form>
     </div>

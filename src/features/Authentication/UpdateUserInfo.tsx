@@ -35,7 +35,9 @@ function UpdateUserInfo() {
       className="bgTablet:py-7 bgTablet:px-10 bgTablet:w-[980px] w-full space-y-7 rounded-2xl bg-[var(--color-grey-0)] px-7 py-7"
       onSubmit={onSubmit}
     >
-      <h3 className="text-xl font-bold">Personal Info</h3>
+      <h3 className="font-playfair text-xl font-bold">
+        {t("accountPersonalInfo")}
+      </h3>
 
       <Label
         htmlFor="avatar"
@@ -71,7 +73,7 @@ function UpdateUserInfo() {
             if (file) {
               updatingAvatar({ avatar: file });
             } else {
-              toast.error("Please select a valid image file.");
+              toast.error(t("personalInfoImageAlert"));
             }
           }}
         />
@@ -79,13 +81,13 @@ function UpdateUserInfo() {
 
       <div className="flex flex-col gap-1">
         <Label htmlFor="email" className="text-sm font-semibold">
-          Email
+          {t("emailInput")}
         </Label>
         <Input value={email} disabled id="email" />
       </div>
       <div className="flex flex-col gap-1">
         <Label htmlFor="firstName" className="text-sm font-semibold">
-          First Name
+          {t("firstNameInput")}
         </Label>
         <Input
           type="text"
@@ -97,7 +99,7 @@ function UpdateUserInfo() {
 
       <div className="flex flex-col gap-1">
         <Label htmlFor="lastName" className="text-sm font-semibold">
-          Last Name
+          {t("lastNameInput")}
         </Label>
         <Input
           type="text"
@@ -113,7 +115,7 @@ function UpdateUserInfo() {
           type="submit"
           className="w-full rounded-full bg-[#ffcb05] px-2 py-6 text-sm text-black transition-all duration-300 hover:scale-x-105 hover:scale-y-105 hover:bg-[#fcde51;]"
         >
-          Save Changes
+          {t("saveChanges")}
         </Button>
       </div>
     </form>

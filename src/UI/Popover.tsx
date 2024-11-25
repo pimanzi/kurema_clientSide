@@ -18,8 +18,10 @@ import {
 } from "@/components/ui/popover";
 import { useState } from "react";
 import { useDeleteArt } from "@/features/Arts/useDeleteArts";
+import { useTranslation } from "react-i18next";
 
 export function PopoverArt({ id }: { id: number }) {
+  const { t } = useTranslation();
   const { deleteArts, isDeleting } = useDeleteArt();
   const [open, setOpen] = useState<boolean>(false);
   const [openDialog, setOpenDialog] = useState<boolean>(false);
@@ -42,7 +44,7 @@ export function PopoverArt({ id }: { id: number }) {
         <ul>
           <li className="flex items-center gap-2 px-2 py-2 font-poppins transition-all duration-300 hover:bg-[#ffcb05]">
             <LuEye></LuEye>
-            <span>View Details</span>
+            <span>{t("viewDetails")}</span>
           </li>
 
           <li className="flex items-center gap-2 px-2 py-2 font-poppins transition-all duration-300 hover:bg-red-200">
@@ -52,17 +54,17 @@ export function PopoverArt({ id }: { id: number }) {
                   {" "}
                   <div className="flex w-full cursor-pointer items-center gap-2 text-[var(--color-text-main)] hover:border-none hover:bg-[var(--color-light-black)]">
                     <MdDelete />
-                    <p>Delete</p>
+                    <p>{t("delete")}</p>
                   </div>
                 </button>
               </DialogTrigger>
               <DialogContent className="bg-white sm:max-w-[425px]">
                 <DialogHeader>
                   <DialogTitle className="text-[var(--color-text-main)]">
-                    Delete Art
+                    {t("deleteTitle")}
                   </DialogTitle>
                   <DialogDescription className="text-[var(--color-grey-500)]">
-                    Are you sure you want to delete task permanently
+                    {t("deleteDescription")}
                   </DialogDescription>
                 </DialogHeader>
                 <DialogFooter className="flex items-center justify-end gap-2">
@@ -70,7 +72,7 @@ export function PopoverArt({ id }: { id: number }) {
                     onClick={() => setOpenDialog(false)}
                     className="rounded border border-gray-300 bg-transparent px-4 py-2 text-gray-800 hover:bg-gray-200"
                   >
-                    Cancel delete
+                    {t("cancelDelete")}
                   </button>
                   <button
                     className="rounded bg-red-600 px-4 py-2 text-white hover:bg-red-400"
@@ -81,7 +83,7 @@ export function PopoverArt({ id }: { id: number }) {
                       setOpen(false);
                     }}
                   >
-                    Delete
+                    {t("delete")}
                   </button>
                 </DialogFooter>
               </DialogContent>

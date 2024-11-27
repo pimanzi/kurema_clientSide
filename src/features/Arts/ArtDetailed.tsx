@@ -93,9 +93,12 @@ export function ArtDetailed() {
 
         {/* Buttons */}
         <div className="space-y-4">
-          <button className="flex w-full items-center justify-center gap-1 rounded-md bg-[#ffcb05] px-4 py-2 font-poppins text-base font-medium text-black hover:bg-[#fcde51;] disabled:bg-[#fcde51]">
-            {t("addCart")}
-          </button>
+          <a
+            href={`mailto: ${artShow?.authUsers.email}`}
+            className="flex w-full items-center justify-center gap-1 rounded-md bg-[#ffcb05] px-4 py-2 font-poppins text-base font-medium text-black hover:bg-[#fcde51;] disabled:bg-[#fcde51]"
+          >
+            Chat with Author
+          </a>
           <LeaveReview id={Number(id)}></LeaveReview>
         </div>
         <div>

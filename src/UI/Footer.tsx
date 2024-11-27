@@ -44,9 +44,6 @@ export default function Footer() {
               {t("footerAbout")}
             </li>
             <li className="font-light text-white transition-all duration-300 hover:underline">
-              {t("footerCart")}
-            </li>
-            <li className="font-light text-white transition-all duration-300 hover:underline">
               {t("footerCatalogue")}
             </li>
           </ul>

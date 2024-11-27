@@ -13,6 +13,7 @@ import ManageArts from "./features/Arts/ManageArts";
 import Art from "./pages/Art";
 import LanguageProvider from "./contexts/LanguageContext";
 import { ProfileArtDetailed } from "./features/Arts/ProfileArtDetailed";
+import FAQ from "./pages/FAQ";
 
 const queryClient = new QueryClient({
   defaultOptions: {
@@ -35,6 +36,7 @@ export default function App() {
                 element={<Navigate replace to="home"></Navigate>}
               ></Route>
               <Route element={<Home></Home>} path="home"></Route>
+              <Route element={<FAQ></FAQ>} path="faq"></Route>
               <Route element={<Catalog></Catalog>} path="catalog"></Route>
               <Route element={<Cart></Cart>} path="cart"></Route>
               <Route element={<Art></Art>} path="art/:id"></Route>

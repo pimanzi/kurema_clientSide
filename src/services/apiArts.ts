@@ -1,6 +1,5 @@
 import { Art, Arts } from "@/interfaces";
 import supabase, { supabaseUrl } from "./supabase";
-import Art from "@/pages/Art";
 
 export async function getArts(): Promise<Arts[]> {
   const { data, error } = await supabase.from("arts").select("*, authUsers(*)");
@@ -25,11 +24,13 @@ export async function getRecentArts(): Promise<Arts[]> {
 }
 
 export async function insertArt(art: Art) {
-  const imageName = `${Math.random()}-${art.image.name}`.replace("/", "");
+  const imageName =
+    typeof art.image !== "string" &&
+    `${Math.random()}-${art.image.name}`.replace("/", "");
 
   const { error: uploadError } = await supabase.storage
     .from("arts")
-    .upload(imageName, art.image);
+    .upload(imageName as string, art.image);
   if (uploadError) {
     throw new Error(`Image upload error: ${uploadError.message}`);
   }

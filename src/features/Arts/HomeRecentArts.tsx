@@ -1,10 +1,10 @@
 import { formatCurrency } from "@/utils/helpers";
 import { useRecentArts } from "./useRecentArts";
 import { Card, CardContent } from "@/components/ui/card";
-import { GrCart } from "react-icons/gr";
 import Slider from "react-slick";
 import { useNavigate } from "react-router-dom";
 import { useTranslation } from "react-i18next";
+import { FaInfo } from "react-icons/fa";
 
 const HomeRecentArts = () => {
   const { t } = useTranslation();
@@ -62,7 +62,8 @@ const HomeRecentArts = () => {
 
                     <div className="absolute inset-0 flex items-center justify-center opacity-0 transition-opacity duration-300 group-hover:opacity-100">
                       <button className="flex items-center gap-2 rounded-full bg-[#ffcb05] px-4 py-2 font-poppins text-base font-medium text-black hover:bg-[#fcde51;]">
-                        <GrCart /> {t("addCart")}
+                        <FaInfo />
+                        Artwork Details
                       </button>
                     </div>
                   </div>

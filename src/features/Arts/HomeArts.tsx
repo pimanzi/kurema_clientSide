@@ -1,5 +1,4 @@
 import { Card, CardContent } from "@/components/ui/card";
-import { GrCart } from "react-icons/gr";
 
 import {
   Carousel,
@@ -12,6 +11,7 @@ import { useArts } from "./useArts";
 import { formatCurrency } from "@/utils/helpers";
 import { useNavigate } from "react-router-dom";
 import { useTranslation } from "react-i18next";
+import { FaInfo } from "react-icons/fa";
 
 export default function HomeArts() {
   const navigate = useNavigate();
@@ -30,12 +30,12 @@ export default function HomeArts() {
             {artsShow.map((art, index) => (
               <CarouselItem key={index} className="flex-shrink-0 basis-1/3">
                 <div className="group relative h-full">
-                  <Card
-                    className="h-full transform transition-all duration-300"
-                    onClick={() => navigate(`/art/${art.id}`)}
-                  >
+                  <Card className="h-full transform transition-all duration-300">
                     <CardContent className="flex flex-col p-0">
-                      <div className="relative">
+                      <div
+                        className="relative"
+                        onClick={() => navigate(`/art/${art.id}`)}
+                      >
                         <img
                           src={art.image}
                           alt={art.name}
@@ -43,10 +43,9 @@ export default function HomeArts() {
                         />
 
                         <div className="absolute inset-0 bg-black opacity-0 transition-opacity duration-300 group-hover:opacity-70"></div>
-
                         <div className="absolute inset-0 flex items-center justify-center opacity-0 transition-opacity duration-300 group-hover:opacity-100">
                           <button className="flex items-center gap-2 rounded-full bg-[#ffcb05] px-4 py-2 font-poppins text-base font-medium text-black hover:bg-[#fcde51;]">
-                            <GrCart /> {t("addCart")}
+                            <FaInfo /> Artwork Details
                           </button>
                         </div>
                       </div>

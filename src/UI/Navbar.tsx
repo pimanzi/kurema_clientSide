@@ -136,11 +136,6 @@ export default function Navbar() {
       {/* Join Us */}
 
       {/* Cart */}
-      <li>
-        <NavLink className="font-poppins" to="/cart">
-          {t("footerCart")}
-        </NavLink>
-      </li>
     </ul>
   );
 }

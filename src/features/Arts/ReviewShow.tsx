@@ -15,7 +15,7 @@ export default function ReviewShow({ reviews }: { reviews: Review[] }) {
   const { t } = useTranslation();
   if (reviews.length === 0) {
     return (
-      <div className="py-6 text-center">
+      <div className="w-[550px] py-6 text-center">
         <h2 className="text-base font-medium text-gray-600">{t("noReview")}</h2>
       </div>
     );
@@ -25,7 +25,7 @@ export default function ReviewShow({ reviews }: { reviews: Review[] }) {
     <div className={reviews.length === 1 ? "relative" : "relative px-4"}>
       <h2 className="text-center text-lg font-medium">{t("reviewTitle")}</h2>
       {/* Carousel for Reviews */}
-      <Carousel className="w-full">
+      <Carousel className="max-w-[550px]">
         <CarouselContent>
           {reviews.map((review, index) => (
             <CarouselItem key={index}>

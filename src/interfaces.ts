@@ -33,7 +33,7 @@ export interface Arts {
 
 export interface Art {
   userId: number | undefined | null;
-  image: File;
+  image: File | string;
   description: string;
   category: string;
   price: number;

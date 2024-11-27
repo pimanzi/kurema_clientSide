@@ -12,6 +12,7 @@ import PersonalInfo from "./UI/PersonalInfo";
 import ManageArts from "./features/Arts/ManageArts";
 import Art from "./pages/Art";
 import LanguageProvider from "./contexts/LanguageContext";
+import { ProfileArtDetailed } from "./features/Arts/ProfileArtDetailed";
 
 const queryClient = new QueryClient({
   defaultOptions: {
@@ -53,6 +54,11 @@ export default function App() {
                 <Route
                   element={<PersonalInfo></PersonalInfo>}
                   path="personalInfo"
+                ></Route>
+
+                <Route
+                  element={<ProfileArtDetailed></ProfileArtDetailed>}
+                  path="/account/manageArts/art/:id"
                 ></Route>
 
                 <Route

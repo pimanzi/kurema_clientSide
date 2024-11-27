@@ -2,23 +2,20 @@ import { useParams } from "react-router-dom";
 import { useArts } from "./useArts";
 import { Card, CardContent } from "@/components/ui/card";
 import { formatCurrency } from "@/utils/helpers";
-import { LeaveReview } from "./LeaveReview";
 import { useReviews } from "../Reviews/useReviews";
 import Stars from "@/UI/Stars";
 import ReviewShow from "./ReviewShow";
 import { useTranslation } from "react-i18next";
+import DeleteButton from "./DeleteButton";
+import { UpdatePersonalArt } from "./UpdateProfileArt";
 
-export function ArtDetailed() {
+export function ProfileArtDetailed() {
   const { t } = useTranslation();
   const { reviews } = useReviews();
   const { id } = useParams();
   const { arts } = useArts();
   const artShow = arts?.find((art) => art.id === Number(id));
-  const Author =
-    artShow?.authUsers?.firstName + " " + artShow?.authUsers?.lastName;
 
-  const email = artShow?.authUsers?.email;
-  const avatar = artShow?.authUsers?.avatar;
   const artReviews =
     reviews?.filter((review) => review.artId === Number(id)) || [];
   const rateAverage = artReviews?.length
@@ -27,9 +24,9 @@ export function ArtDetailed() {
 
   console.log(rateAverage);
   return (
-    <div className="mx-[20vw] mt-10 grid grid-cols-[500px_1fr] gap-[80px]">
+    <div className="mb-[70px] mt-[90px] grid grid-cols-[500px_1fr] gap-[20px]">
       {/* Left Column: Image */}
-      <Card className="h-[600px]">
+      <Card className="h-[500px]">
         <CardContent className="h-full p-0">
           <img
             src={artShow?.image}
@@ -59,25 +56,6 @@ export function ArtDetailed() {
           </div>
         </div>
 
-        {/* author info */}
-
-        <div className="flex items-center gap-4">
-          <img
-            className="h-[40px] w-[40px] rounded-full"
-            src={avatar ? avatar : "/Images/default-user.jpg"}
-            alt="author"
-          ></img>
-
-          <div>
-            <p className="text-sm text-gray-600">
-              <span className="font-medium">{t("authorNames")}</span> {Author}
-            </p>
-            <p className="text-sm text-gray-600">
-              <span className="font-medium">{t("authorEmail")}</span> {email}
-            </p>
-          </div>
-        </div>
-
         {/* Art Details */}
         <div className="space-y-4">
           <p className="text-base text-gray-600">
@@ -93,14 +71,10 @@ export function ArtDetailed() {
 
         {/* Buttons */}
         <div className="space-y-4">
-          <button className="flex w-full items-center justify-center gap-1 rounded-md bg-[#ffcb05] px-4 py-2 font-poppins text-base font-medium text-black hover:bg-[#fcde51;] disabled:bg-[#fcde51]">
-            {t("addCart")}
-          </button>
-          <LeaveReview id={Number(id)}></LeaveReview>
+          <DeleteButton id={Number(id)}></DeleteButton>
+          <UpdatePersonalArt id={Number(id)}></UpdatePersonalArt>
         </div>
-        <div>
-          <ReviewShow reviews={artReviews}></ReviewShow>
-        </div>
+        <ReviewShow reviews={artReviews}></ReviewShow>
       </div>
     </div>
   );

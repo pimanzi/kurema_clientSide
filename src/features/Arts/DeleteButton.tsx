@@ -10,9 +10,11 @@ import {
 import { useState } from "react";
 import { useTranslation } from "react-i18next";
 import { useDeleteArt } from "./useDeleteArts";
+import { useNavigate } from "react-router-dom";
 
 export default function DeleteButton({ id }: { id: number }) {
   const [openDialog, setOpenDialog] = useState<boolean>(false);
+  const navigate = useNavigate();
   const { t } = useTranslation();
   const { isDeleting, deleteArts } = useDeleteArt();
   return (
@@ -43,6 +45,7 @@ export default function DeleteButton({ id }: { id: number }) {
             disabled={isDeleting}
             onClick={() => {
               deleteArts(id);
+              navigate("/account/manageArts/");
               setOpenDialog(false);
             }}
           >

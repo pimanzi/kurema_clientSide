@@ -2,6 +2,8 @@ import { useTranslation } from "react-i18next";
 import { FaLinkedinIn, FaPhoneAlt } from "react-icons/fa";
 import { MdEmail } from "react-icons/md";
 import { RiInstagramLine } from "react-icons/ri";
+import { Link } from "react-scroll";
+import { NavLink } from "react-router-dom";
 
 export default function Footer() {
   const { t } = useTranslation();
@@ -38,13 +40,21 @@ export default function Footer() {
           </h3>
           <ul className="space-y-2">
             <li className="font-light text-white transition-all duration-300 hover:underline">
-              {t("footerFaq")}
+              <NavLink to="/faq">{t("footerFaq")}</NavLink>
             </li>
             <li className="font-light text-white transition-all duration-300 hover:underline">
-              {t("footerAbout")}
+              <Link
+                to="about"
+                spy={true}
+                smooth={true}
+                duration={500}
+                offset={-50}
+              >
+                {t("footerAbout")}
+              </Link>
             </li>
             <li className="font-light text-white transition-all duration-300 hover:underline">
-              {t("footerCatalogue")}
+              <NavLink to="/catalog">{t("footerCatalogue")}</NavLink>
             </li>
           </ul>
         </div>

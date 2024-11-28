@@ -23,7 +23,7 @@ Kurema Hub is an innovative art e-commerce platform designed to showcase and cel
 
 ## Live Demo  
 
-Check out the live demo here: [Kurema Hub](#) *(link to be added)*  
+Check out the live demo here: [Kurema Hub](https://kuremahub.netlify.app) *(link to be added)*  
 
 ## Installation  
 

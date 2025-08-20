@@ -17,18 +17,75 @@
   color: #322e1f;
 }
 
+/* Wrapper responsive styles */
+.wrapper {
+  width: 100%;
+  max-width: 380px;
+  padding: 20px;
+  margin: 0 auto;
+}
+
+/* Mobile first approach */
+@media (max-width: 640px) {
+  .wrapper {
+    max-width: 280px;
+    padding: 16px;
+  }
+}
+
+@media (min-width: 641px) and (max-width: 768px) {
+  .wrapper {
+    max-width: 350px;
+    padding: 18px;
+  }
+}
+
 .wrapper .title-text {
-  display: flex;
-  width: 200%;
+  position: relative;
+  display: block;
+  width: 100%;
+  text-align: center;
+  margin-bottom: 25px;
+  overflow: hidden;
 }
 .wrapper .title {
   margin-bottom: 10px;
-  width: 50%;
+  width: 100%;
   font-size: 2.25rem; /* 36px */
   line-height: 2.5rem; /* 40px */
   font-weight: 600;
   text-align: center;
-  transition: all 0.6s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+  transition: all 0.3s ease;
+}
+
+/* Responsive title sizes */
+@media (max-width: 640px) {
+  .wrapper .title {
+    font-size: 1.75rem; /* 28px */
+    line-height: 2rem; /* 32px */
+  }
+}
+
+@media (min-width: 641px) and (max-width: 768px) {
+  .wrapper .title {
+    font-size: 2rem; /* 32px */
+    line-height: 2.25rem; /* 36px */
+  }
+}
+
+.wrapper .title-message {
+  width: 100%;
+  text-align: center;
+  margin-bottom: 15px;
+  opacity: 0.8;
+}
+
+/* Responsive title message */
+@media (max-width: 640px) {
+  .wrapper .title-message {
+    font-size: 0.875rem; /* 14px */
+    margin-bottom: 12px;
+  }
 }
 .wrapper .slide-controls {
   position: relative;
@@ -41,6 +98,15 @@
   border: 1px solid lightgrey;
   border-radius: 15px;
 }
+
+/* Responsive slide controls */
+@media (max-width: 640px) {
+  .wrapper .slide-controls {
+    height: 45px;
+    margin: 20px 0 10px 0;
+  }
+}
+
 .slide-controls .slide {
   height: 100%;
   width: 100%;
@@ -53,6 +119,14 @@
   cursor: pointer;
   z-index: 1;
   transition: all 0.6s ease;
+}
+
+/* Responsive slide text */
+@media (max-width: 640px) {
+  .slide-controls .slide {
+    font-size: 0.875rem; /* 14px */
+    line-height: 43px;
+  }
 }
 .slide-controls label.signup {
   color: #322e1f;
@@ -103,19 +177,45 @@ input[type="radio"] {
 }
 .form-inner form .field {
   width: 100%;
-  margin-top: 20px;
+  margin-top: 16px;
 }
+
+/* Responsive field margins */
+@media (max-width: 640px) {
+  .form-inner form .field {
+    margin-top: 12px;
+  }
+}
+
 .form-inner form .field input {
-  height: 50px;
+  height: 48px;
   width: 100%;
   outline: none;
   padding-left: 15px;
-  border-radius: 15px;
+  border-radius: 12px;
   border: 1px solid lightgrey;
   border-bottom-width: 2px;
   font-size: 0.875rem; /* 14px */
   line-height: 1.25rem; /* 20px */
   transition: all 0.3s ease;
+}
+
+/* Responsive input sizes */
+@media (max-width: 640px) {
+  .form-inner form .field input {
+    height: 42px;
+    padding-left: 12px;
+    font-size: 0.8125rem; /* 13px */
+    border-radius: 10px;
+  }
+}
+
+@media (min-width: 641px) and (max-width: 768px) {
+  .form-inner form .field input {
+    height: 45px;
+    padding-left: 14px;
+    border-radius: 11px;
+  }
 }
 .form-inner form .field input:focus {
   border-color: #ffcb05;
@@ -154,6 +254,22 @@ form .btn {
   position: relative;
   overflow: hidden;
 }
+
+/* Responsive button sizes */
+@media (max-width: 640px) {
+  form .btn {
+    height: 45px;
+    border-radius: 12px;
+  }
+}
+
+@media (min-width: 641px) and (max-width: 768px) {
+  form .btn {
+    height: 47px;
+    border-radius: 13px;
+  }
+}
+
 form .btn .btn-layer {
   height: 100%;
   width: 300%;
@@ -163,6 +279,20 @@ form .btn .btn-layer {
   border-radius: 15px;
   transition: all 0.4s ease;
 }
+
+/* Responsive button layer */
+@media (max-width: 640px) {
+  form .btn .btn-layer {
+    border-radius: 12px;
+  }
+}
+
+@media (min-width: 641px) and (max-width: 768px) {
+  form .btn .btn-layer {
+    border-radius: 13px;
+  }
+}
+
 form .btn:hover .btn-layer {
   left: 0;
 }
@@ -182,6 +312,67 @@ form .btn input[type="submit"] {
   cursor: pointer;
 }
 
+/* Responsive submit button */
+@media (max-width: 640px) {
+  form .btn input[type="submit"] {
+    font-size: 0.875rem; /* 14px */
+    border-radius: 12px;
+  }
+}
+
+@media (min-width: 641px) and (max-width: 768px) {
+  form .btn input[type="submit"] {
+    font-size: 0.9375rem; /* 15px */
+    border-radius: 13px;
+  }
+}
+
 form .btn input[type="submit"]:hover {
   background-color: #fcde51;
+}
+
+/* Additional responsive improvements */
+@media (max-width: 640px) {
+  .wrapper .title-text {
+    margin-bottom: 5px;
+  }
+
+  .form-inner form .signup-link {
+    margin-top: 20px;
+  }
+
+  /* Better spacing for mobile error messages */
+  .field span.text-sm {
+    font-size: 0.75rem;
+    display: block;
+    margin-top: 4px;
+  }
+
+  /* Mobile-specific improvements for links */
+  .mt-3 {
+    margin-top: 0.5rem !important;
+  }
+}
+
+@media (min-width: 641px) and (max-width: 768px) {
+  /* Tablet-specific improvements */
+  .form-inner form .signup-link {
+    margin-top: 25px;
+  }
+}
+
+/* Touch-friendly improvements for mobile devices */
+@media (hover: none) and (pointer: coarse) {
+  .slide-controls .slide {
+    padding: 8px;
+  }
+
+  form .btn input[type="submit"] {
+    padding: 8px;
+  }
+
+  /* Larger touch targets */
+  a {
+    padding: 2px 4px;
+  }
 }

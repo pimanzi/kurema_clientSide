@@ -10,58 +10,64 @@ export default function CatalogNav() {
 
   const choosenCategory = searchParams.get("category") || "all";
   const { t } = useTranslation();
+
   return (
-    <ul className="space-y-4">
-      <li
-        onClick={() => handleClick("all")}
-        className={
-          choosenCategory === "all"
-            ? "block bg-[#ffcb05] px-2 py-2 font-poppins text-base font-medium transition-all duration-300 hover:cursor-not-allowed"
-            : "block px-2 py-2 font-poppins text-base font-medium transition-all duration-300 hover:cursor-pointer hover:bg-[#ffcb05]"
-        }
-      >
-        {t("all")}
-      </li>
-      <li
-        onClick={() => handleClick("painting")}
-        className={
-          choosenCategory === "painting"
-            ? "block bg-[#ffcb05] px-2 py-2 font-poppins text-base font-medium transition-all duration-300 hover:cursor-not-allowed"
-            : "block px-2 py-2 font-poppins text-base font-medium transition-all duration-300 hover:cursor-pointer hover:bg-[#ffcb05]"
-        }
-      >
-        {t("paintings")}
-      </li>
-      <li
-        onClick={() => handleClick("sculpture")}
-        className={
-          choosenCategory === "sculpture"
-            ? "block bg-[#ffcb05] px-2 py-2 font-poppins text-base font-medium transition-all duration-300 hover:cursor-not-allowed"
-            : "block px-2 py-2 font-poppins text-base font-medium transition-all duration-300 hover:cursor-pointer hover:bg-[#ffcb05]"
-        }
-      >
-        {t("sculptures")}
-      </li>
-      <li
-        onClick={() => handleClick("fabric")}
-        className={
-          choosenCategory === "fabric"
-            ? "block bg-[#ffcb05] px-2 py-2 font-poppins text-base font-medium transition-all duration-300 hover:cursor-not-allowed"
-            : "block px-2 py-2 font-poppins text-base font-medium transition-all duration-300 hover:cursor-pointer hover:bg-[#ffcb05]"
-        }
-      >
-        {t("fabrics")}
-      </li>
-      <li
-        onClick={() => handleClick("photography")}
-        className={
-          choosenCategory === "photography"
-            ? "block bg-[#ffcb05] px-2 py-2 font-poppins text-base font-medium transition-all duration-300 hover:cursor-not-allowed"
-            : "block px-2 py-2 font-poppins text-base font-medium transition-all duration-300 hover:cursor-pointer hover:bg-[#ffcb05]"
-        }
-      >
-        {t("photographies")}
-      </li>
-    </ul>
+    <div>
+      <h3 className="mb-4 font-playfair text-lg font-bold text-gray-800">
+        {t("categories") || "Categories"}
+      </h3>
+      <ul className="space-y-2">
+        <li
+          onClick={() => handleClick("all")}
+          className={`block cursor-pointer rounded-md px-3 py-2 font-poppins text-sm font-medium transition-all duration-300 sm:text-base ${
+            choosenCategory === "all"
+              ? "cursor-not-allowed bg-[#ffcb05] text-black"
+              : "text-gray-700 hover:bg-[#ffcb05] hover:text-black"
+          }`}
+        >
+          {t("all")}
+        </li>
+        <li
+          onClick={() => handleClick("painting")}
+          className={`block cursor-pointer rounded-md px-3 py-2 font-poppins text-sm font-medium transition-all duration-300 sm:text-base ${
+            choosenCategory === "painting"
+              ? "cursor-not-allowed bg-[#ffcb05] text-black"
+              : "text-gray-700 hover:bg-[#ffcb05] hover:text-black"
+          }`}
+        >
+          {t("paintings")}
+        </li>
+        <li
+          onClick={() => handleClick("sculpture")}
+          className={`block cursor-pointer rounded-md px-3 py-2 font-poppins text-sm font-medium transition-all duration-300 sm:text-base ${
+            choosenCategory === "sculpture"
+              ? "cursor-not-allowed bg-[#ffcb05] text-black"
+              : "text-gray-700 hover:bg-[#ffcb05] hover:text-black"
+          }`}
+        >
+          {t("sculptures")}
+        </li>
+        <li
+          onClick={() => handleClick("fabric")}
+          className={`block cursor-pointer rounded-md px-3 py-2 font-poppins text-sm font-medium transition-all duration-300 sm:text-base ${
+            choosenCategory === "fabric"
+              ? "cursor-not-allowed bg-[#ffcb05] text-black"
+              : "text-gray-700 hover:bg-[#ffcb05] hover:text-black"
+          }`}
+        >
+          {t("fabrics")}
+        </li>
+        <li
+          onClick={() => handleClick("photography")}
+          className={`block cursor-pointer rounded-md px-3 py-2 font-poppins text-sm font-medium transition-all duration-300 sm:text-base ${
+            choosenCategory === "photography"
+              ? "cursor-not-allowed bg-[#ffcb05] text-black"
+              : "text-gray-700 hover:bg-[#ffcb05] hover:text-black"
+          }`}
+        >
+          {t("photographies")}
+        </li>
+      </ul>
+    </div>
   );
 }

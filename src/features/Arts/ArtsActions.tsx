@@ -20,10 +20,10 @@ export default function ArtsActions({ id }: { id: number | null | undefined }) {
     setSearchParams(searchParams);
   }
   return (
-    <div className="flex items-center justify-end gap-3">
+    <div className="flex flex-col items-stretch gap-3 sm:flex-row sm:items-center sm:justify-end">
       <CreateArt id={id}></CreateArt>
       <Select onValueChange={handleClick}>
-        <SelectTrigger className="focus:ring-whitefocus-visible:outline-none w-fit bg-black text-white focus:border-transparent focus:ring">
+        <SelectTrigger className="focus:ring-whitefocus-visible:outline-none w-full bg-black text-white focus:border-transparent focus:ring sm:w-fit">
           <SelectValue placeholder={t("artSortPlaceholder1")} />
         </SelectTrigger>
         <SelectContent>

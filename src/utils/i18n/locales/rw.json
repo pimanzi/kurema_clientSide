@@ -93,6 +93,11 @@
   "priceLow": "Igiciro (gitoya mbere)",
   "priceHigh": "Igiciro (gikomeye mbere)",
 
+  "searchArtworks": "Shakisha ibihangano",
+  "filters": "Muyuga",
+  "chatWithAuthor": "Ganira n'umwanditsi",
+  "categories": "Ibyiciro",
+
   "aboutTitle": "Impamvu zo Kutugana",
   "aboutReason1": "Ibihangano Byihariye",
   "aboutDescription1": "Tora ubuhanzi bufite ireme bwatoranijwe hirya no hino ku isi.",
@@ -103,6 +108,7 @@
 
   "accountPersonalInfo": "Amakuru Y'Umuntu",
   "accountManageArts": "Ibihangano Byawe",
+  "accountMenu": "Urutonde rw'Akonti",
   "logout": "Sohoka",
 
   "footerCall": "Dushimira ubuhanzi, ubuhanzi n'ubumenyi buhanitse",

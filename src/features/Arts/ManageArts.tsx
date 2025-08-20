@@ -18,12 +18,12 @@ export default function ManageArts() {
   const { t } = useTranslation();
 
   return (
-    <div className="mb-[100px] mt-[80px] space-y-9">
-      <div className="space-y-3">
-        <h2 className="font-playfair text-4xl font-extrabold">
+    <div className="mb-16 mt-16 space-y-6 px-4 sm:mb-20 sm:mt-20 sm:space-y-8 sm:px-0 md:mb-24 md:mt-24 md:space-y-9 lg:mb-[100px] lg:mt-[80px]">
+      <div className="space-y-2 sm:space-y-3">
+        <h2 className="font-playfair text-2xl font-extrabold sm:text-3xl md:text-4xl">
           {t("artManager")}
         </h2>
-        <p className="font-lg space-x-1 font-light text-[#504f4f]">
+        <p className="text-sm font-light text-[#504f4f] sm:text-base md:text-lg">
           {t("shortDescriptionManager1")}{" "}
           <span className="font-bold text-[#ffcb05]">
             {t("shortDescriptionManager2")}
@@ -35,8 +35,10 @@ export default function ManageArts() {
           <div className="loader"></div>
         </div>
       ) : artsShow?.length === 0 ? (
-        <div className="flex h-[30vh] flex-col items-center justify-center gap-4">
-          <p className="text-lg text-gray-600">{t("noPersonalArts")}</p>
+        <div className="flex min-h-[25vh] flex-col items-center justify-center gap-3 px-4 text-center sm:min-h-[30vh] sm:gap-4 sm:px-0">
+          <p className="text-base text-gray-600 sm:text-lg">
+            {t("noPersonalArts")}
+          </p>
           <CreateArt id={id} />
         </div>
       ) : (

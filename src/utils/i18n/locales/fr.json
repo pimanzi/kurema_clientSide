@@ -93,6 +93,11 @@
   "priceLow": "Prix (du plus bas au plus élevé)",
   "priceHigh": "Prix (du plus élevé au plus bas)",
 
+  "searchArtworks": "Rechercher des œuvres",
+  "filters": "Filtres",
+  "chatWithAuthor": "Discuter avec l'auteur",
+  "categories": "Catégories",
+
   "aboutTitle": "Pourquoi nous choisir",
   "aboutReason1": "Collection d'art exclusive",
   "aboutDescription1": "Découvrez des œuvres uniques et de haute qualité, sélectionnées avec soin dans le monde entier.",
@@ -103,6 +108,7 @@
 
   "accountPersonalInfo": "Informations personnelles",
   "accountManageArts": "Gérez vos œuvres",
+  "accountMenu": "Menu du compte",
   "logout": "Déconnexion",
 
   "footerCall": "Célébrons l'art, la créativité et l'innovation",

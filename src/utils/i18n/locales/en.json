@@ -93,6 +93,11 @@
   "priceLow": "Price (low first)",
   "priceHigh": "Price (high first)",
 
+  "searchArtworks": "Search Artworks",
+  "filters": "Filters",
+  "chatWithAuthor": "Chat with Author",
+  "categories": "Categories",
+
   "aboutTitle": "Why to choose us",
   "aboutReason1": "Exclusive Art Collection",
   "aboutDescription1": "Discover unique, high-quality artwork from talented artists across the globe, handpicked for your enjoyment.",
@@ -103,6 +108,7 @@
 
   "accountPersonalInfo": "Personal Info",
   "accountManageArts": "Manage Your Arts",
+  "accountMenu": "Account Menu",
   "logout": "Sign Out",
 
   "footerCall": "Celebrating art, creativity, and innovation",

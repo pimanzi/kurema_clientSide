@@ -27,83 +27,86 @@ export function ArtDetailed() {
 
   console.log(rateAverage);
   return (
-    <div className="mx-[20vw] mt-10 grid grid-cols-[500px_1fr] gap-[80px]">
-      {/* Left Column: Image */}
-      <Card className="h-[600px]">
-        <CardContent className="h-full p-0">
-          <img
-            src={artShow?.image}
-            alt={artShow?.name || "Artwork"}
-            className="h-full w-full rounded object-cover"
-          />
-        </CardContent>
-      </Card>
-
-      {/* Right Column: Details */}
-      <div className="flex flex-col space-y-6">
-        {/* Art Name and Rating */}
-        <div>
-          <h2 className="font-playfair text-3xl font-bold">
-            {artShow?.name || "Untitled"}
-          </h2>
-          <div className="mt-2 flex items-center space-x-2">
-            {/* Render dynamic stars with the average rating */}
-            <Stars
-              rating={rateAverage} // Use the calculated average rating
-              color="#ffcb05"
-              size={24}
+    <div className="mx-4 mt-2 sm:mx-8 sm:mt-4 md:mx-12 md:mt-6 lg:mx-[8vw] xl:mx-[12vw] 2xl:mx-[18vw]">
+      <div className="grid grid-cols-1 gap-4 sm:gap-6 lg:grid-cols-2 lg:gap-12 xl:gap-16">
+        {/* Left Column: Image */}
+        <Card className="h-[300px] sm:h-[400px] md:h-[500px] lg:h-[600px]">
+          <CardContent className="h-full p-0">
+            <img
+              src={artShow?.image}
+              alt={artShow?.name || "Artwork"}
+              className="h-full w-full rounded object-cover"
             />
-            <span className="text-gray-600">
-              ({rateAverage.toFixed(1)} / 5)
-            </span>
-          </div>
-        </div>
+          </CardContent>
+        </Card>
 
-        {/* author info */}
-
-        <div className="flex items-center gap-4">
-          <img
-            className="h-[40px] w-[40px] rounded-full"
-            src={avatar ? avatar : "/Images/default-user.jpg"}
-            alt="author"
-          ></img>
-
+        {/* Right Column: Details */}
+        <div className="flex flex-col space-y-4 sm:space-y-6">
+          {/* Art Name and Rating */}
           <div>
-            <p className="text-sm text-gray-600">
-              <span className="font-medium">{t("authorNames")}</span> {Author}
+            <h2 className="font-playfair text-xl font-bold sm:text-2xl md:text-3xl">
+              {artShow?.name || "Untitled"}
+            </h2>
+            <div className="mt-2 flex flex-col items-start space-y-2 sm:flex-row sm:items-center sm:space-x-2 sm:space-y-0">
+              {/* Render dynamic stars with the average rating */}
+              <Stars
+                rating={rateAverage} // Use the calculated average rating
+                color="#ffcb05"
+                size={20}
+              />
+              <span className="text-sm text-gray-600 sm:text-base">
+                ({rateAverage.toFixed(1)} / 5)
+              </span>
+            </div>
+          </div>
+
+          {/* author info */}
+          <div className="flex items-center gap-3 sm:gap-4">
+            <img
+              className="h-[35px] w-[35px] rounded-full sm:h-[40px] sm:w-[40px]"
+              src={avatar ? avatar : "/Images/default-user.jpg"}
+              alt="author"
+            />
+
+            <div className="min-w-0 flex-1">
+              <p className="truncate text-xs text-gray-600 sm:text-sm">
+                <span className="font-medium">{t("authorNames")}</span> {Author}
+              </p>
+              <p className="truncate text-xs text-gray-600 sm:text-sm">
+                <span className="font-medium">{t("authorEmail")}</span> {email}
+              </p>
+            </div>
+          </div>
+
+          {/* Art Details */}
+          <div className="space-y-3 sm:space-y-4">
+            <p className="text-sm text-gray-600 sm:text-base">
+              {artShow?.description || "No description available."}
             </p>
-            <p className="text-sm text-gray-600">
-              <span className="font-medium">{t("authorEmail")}</span> {email}
+            <p className="text-base font-medium sm:text-lg">
+              {t("artPrice")}{" "}
+              <span className="font-bold text-[#ffcb05]">
+                {artShow?.price ? formatCurrency(artShow.price) : "N/A"}
+              </span>
             </p>
           </div>
-        </div>
 
-        {/* Art Details */}
-        <div className="space-y-4">
-          <p className="text-base text-gray-600">
-            {artShow?.description || "No description available."}
-          </p>
-          <p className="text-lg font-medium">
-            {t("artPrice")}{" "}
-            <span className="font-bold text-[#ffcb05]">
-              {artShow?.price ? formatCurrency(artShow.price) : "N/A"}
-            </span>
-          </p>
+          {/* Buttons */}
+          <div className="space-y-3 sm:space-y-4">
+            <a
+              href={`mailto: ${artShow?.authUsers.email}`}
+              className="flex w-full items-center justify-center gap-1 rounded-md bg-[#ffcb05] px-4 py-3 font-poppins text-sm font-medium text-black transition-colors hover:bg-[#fcde51] sm:text-base"
+            >
+              {t("chatWithAuthor")}
+            </a>
+            <LeaveReview id={Number(id)} />
+          </div>
         </div>
+      </div>
 
-        {/* Buttons */}
-        <div className="space-y-4">
-          <a
-            href={`mailto: ${artShow?.authUsers.email}`}
-            className="flex w-full items-center justify-center gap-1 rounded-md bg-[#ffcb05] px-4 py-2 font-poppins text-base font-medium text-black hover:bg-[#fcde51;] disabled:bg-[#fcde51]"
-          >
-            Chat with Author
-          </a>
-          <LeaveReview id={Number(id)}></LeaveReview>
-        </div>
-        <div>
-          <ReviewShow reviews={artReviews}></ReviewShow>
-        </div>
+      {/* Reviews Section - Full Width Below */}
+      <div className="mt-8 lg:mt-12">
+        <ReviewShow reviews={artReviews} />
       </div>
     </div>
   );

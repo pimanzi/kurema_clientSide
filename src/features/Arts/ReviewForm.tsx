@@ -47,38 +47,50 @@ export function AddReview({
     );
   };
   return (
-    <div className="space-y-4 border-t border-gray-200 pt-6">
-      <h3 className="text-lg font-semibold">{t("leaveReview")}</h3>
-      <form className="flex flex-col gap-4" onSubmit={handleSubmit(onSubmit)}>
-        {/* Name Field */}
-        <div>
-          <Input
-            id="name"
-            placeholder={t("commentorName")}
-            {...register("names", { required: t("commentorNameError") })}
-          />
-          {errors.names && (
-            <span className="text-xs text-red-500">{errors.names.message}</span>
-          )}
-        </div>
+    <div className="space-y-4 border-t border-gray-200 pt-4 sm:pt-6">
+      <h3 className="text-base font-semibold sm:text-lg">{t("leaveReview")}</h3>
+      <form
+        className="flex flex-col gap-3 sm:gap-4"
+        onSubmit={handleSubmit(onSubmit)}
+      >
+        {/* Name and Email Fields - Stack on mobile, side by side on larger screens */}
+        <div className="grid grid-cols-1 gap-3 sm:grid-cols-2 sm:gap-4">
+          {/* Name Field */}
+          <div>
+            <Input
+              id="name"
+              placeholder={t("commentorName")}
+              className="h-10 text-sm sm:h-11 sm:text-base"
+              {...register("names", { required: t("commentorNameError") })}
+            />
+            {errors.names && (
+              <span className="text-xs text-red-500">
+                {errors.names.message}
+              </span>
+            )}
+          </div>
 
-        {/* Email Field */}
-        <div>
-          <Input
-            id="email"
-            type="email"
-            placeholder={t("commentorEmail")}
-            {...register("email", {
-              required: t("commentorEmailError"),
-              pattern: {
-                value: /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,4}$/,
-                message: t("commentorEmailMessageError"),
-              },
-            })}
-          />
-          {errors.email && (
-            <span className="text-xs text-red-500">{errors.email.message}</span>
-          )}
+          {/* Email Field */}
+          <div>
+            <Input
+              id="email"
+              type="email"
+              placeholder={t("commentorEmail")}
+              className="h-10 text-sm sm:h-11 sm:text-base"
+              {...register("email", {
+                required: t("commentorEmailError"),
+                pattern: {
+                  value: /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,4}$/,
+                  message: t("commentorEmailMessageError"),
+                },
+              })}
+            />
+            {errors.email && (
+              <span className="text-xs text-red-500">
+                {errors.email.message}
+              </span>
+            )}
+          </div>
         </div>
 
         {/* Review Field */}
@@ -93,7 +105,8 @@ export function AddReview({
                 value={field.value}
                 disabled={false}
                 placeholder={t("commentorReview")}
-              ></TextareaUi>
+                className="min-h-[80px] text-sm sm:min-h-[100px] sm:text-base"
+              />
             )}
           />
           {errors.comment && (
@@ -103,28 +116,30 @@ export function AddReview({
           )}
         </div>
 
+        {/* Rating Section */}
         <div className="space-y-2">
-          <Stars
-            rating={rating} // Current rating
-            maxStars={5}
-            color="#fcc419"
-            size={20}
-            showRating={true}
-            onSetRatingOutside={(newRating) => setRating(newRating)} // Update the rating
-          />
-          {rating > 0 && (
-            <p className="text-sm text-gray-600">
-              {t("selectedRating")}: {rating} / 5
-            </p>
-          )}
+          <div className="flex flex-col items-start space-y-2 sm:flex-row sm:items-center sm:space-x-4 sm:space-y-0">
+            <Stars
+              rating={rating} // Current rating
+              maxStars={5}
+              color="#fcc419"
+              size={18}
+              showRating={true}
+              onSetRatingOutside={(newRating) => setRating(newRating)} // Update the rating
+            />
+            {rating > 0 && (
+              <p className="text-xs text-gray-600 sm:text-sm">
+                {t("selectedRating")}: {rating} / 5
+              </p>
+            )}
+          </div>
         </div>
 
         {/* Submit Button */}
-
         <button
           disabled={isCreating}
           type="submit"
-          className="w-full rounded-md bg-[#ffcb05] py-2 text-sm font-medium text-black hover:bg-[#fcde51]"
+          className="w-full rounded-md bg-[#ffcb05] py-2.5 text-sm font-medium text-black transition-colors hover:bg-[#fcde51] disabled:opacity-50 sm:py-3 sm:text-base"
         >
           {t("submitReview")}
         </button>

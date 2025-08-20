@@ -18,26 +18,39 @@ export default function CatalogSort() {
     searchParams.set("sortBy", value);
     setSearchParams(searchParams);
   }
+
   return (
-    <div className="flex justify-end pr-3">
+    <div className="flex w-full justify-end sm:w-auto">
       <Select onValueChange={handleClick}>
-        <SelectTrigger className="focus:ring-whitefocus-visible:outline-none w-fit bg-black text-white focus:border-transparent focus:ring">
-          <SelectValue placeholder={t("sortPlaceholder2")} />
+        <SelectTrigger className="w-full min-w-[160px] bg-black text-white transition-colors focus:border-transparent focus:ring-1 focus:ring-[#ffcb05] focus-visible:outline-none sm:w-fit">
+          <SelectValue placeholder={t("sortPlaceholder2") || "Sort by..."} />
         </SelectTrigger>
         <SelectContent>
           <SelectGroup>
-            <SelectLabel>{t("sortLabel2")}</SelectLabel>
-            <SelectItem className="hover:!bg-[#ffcb05]" value="date-asc">
-              {t("oldestFirst")}
+            <SelectLabel>{t("sortLabel2") || "Sort Options"}</SelectLabel>
+            <SelectItem
+              className="hover:!bg-[#ffcb05] hover:!text-black"
+              value="date-asc"
+            >
+              {t("oldestFirst") || "Oldest First"}
             </SelectItem>
-            <SelectItem className="hover:!bg-[#ffcb05]" value="date-desc">
-              {t("newestFirst")}
+            <SelectItem
+              className="hover:!bg-[#ffcb05] hover:!text-black"
+              value="date-desc"
+            >
+              {t("newestFirst") || "Newest First"}
             </SelectItem>
-            <SelectItem className="hover:!bg-[#ffcb05]" value="price-asc">
-              {t("priceLow")}
+            <SelectItem
+              className="hover:!bg-[#ffcb05] hover:!text-black"
+              value="price-asc"
+            >
+              {t("priceLow") || "Price: Low to High"}
             </SelectItem>
-            <SelectItem className="hover:!bg-[#ffcb05]" value="price-desc">
-              {t("priceHigh")}
+            <SelectItem
+              className="hover:!bg-[#ffcb05] hover:!text-black"
+              value="price-desc"
+            >
+              {t("priceHigh") || "Price: High to Low"}
             </SelectItem>
           </SelectGroup>
         </SelectContent>

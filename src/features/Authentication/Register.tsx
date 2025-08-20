@@ -87,23 +87,12 @@ export default function Register({
     <div className="wrapper">
       {/* Title Text */}
       <div className="title-text">
-        {isLogin ? (
-          <div className="w-full">
-            <p className="title text-center font-playfair font-extrabold">
-              {t("loginTitle")}
-            </p>
-            <p className="block w-full text-sm text-[#504f4f]">
-              {t("loginMessage")}
-            </p>
-          </div>
-        ) : (
-          <div className="w-full">
-            <p className="title text-center font-playfair font-extrabold">
-              {t("signupTitle")}
-            </p>
-            <p className="ml-4 text-sm text-[#504f4f]">{t("signupMessage")}</p>
-          </div>
-        )}
+        <p className="title font-playfair font-extrabold">
+          {isLogin ? t("loginTitle") : t("signupTitle")}
+        </p>
+        <p className="title-message text-sm text-[#504f4f]">
+          {isLogin ? t("loginMessage") : t("signupMessage")}
+        </p>
       </div>
 
       {/* Slide Controls */}
@@ -163,7 +152,7 @@ export default function Register({
                     loginErrors.passwordEmail.message}
                 </span>
               </div>
-              <div className="mt-3 text-sm font-extrabold text-[#ffcb05] hover:underline">
+              <div className="mt-3 text-center text-sm font-extrabold text-[#ffcb05] hover:underline sm:text-left">
                 <a href="#">{t("forgotPassword")}</a>
               </div>
               <div className="field btn">
@@ -174,7 +163,7 @@ export default function Register({
                   value={t("loginTitle")}
                 />
               </div>
-              <div className="mt-3">
+              <div className="mt-3 text-center sm:text-left">
                 <span className="mr-2 text-sm">{t("notMember")}</span>
                 <a
                   className="text-sm font-extrabold text-[#ffcb05] hover:underline"
@@ -193,7 +182,7 @@ export default function Register({
               onSubmit={handleSubmitSignup(onSubmitSignUp)}
               className="signup"
             >
-              <div className="flex gap-2">
+              <div className="flex flex-col gap-0 sm:flex-row sm:gap-2">
                 <div className="field">
                   <input
                     type="text"

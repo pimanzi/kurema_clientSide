@@ -11,17 +11,17 @@ export default function AppLayout() {
   const { isLoading: isLoadingRecentArts } = useRecentArts();
   if (isLoading || isLoadingArts || isLoadingRecentArts)
     return (
-      <div className="flex h-screen items-center justify-center bg-[#ffffffcc;]">
+      <div className="flex h-screen items-center justify-center bg-[#ffffffcc]">
         <div className="loader"></div>
       </div>
     );
   return (
-    <div className="w-[100vw] overflow-hidden">
-      <Header></Header>;
-      <main className="mt-0">
-        <Outlet></Outlet>
+    <div className="min-h-screen w-full overflow-x-hidden">
+      <Header />
+      <main className="pt-[60px] xl:pt-[65px]">
+        <Outlet />
       </main>
-      <Footer></Footer>
+      <Footer />
     </div>
   );
 }

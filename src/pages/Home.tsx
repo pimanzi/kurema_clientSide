@@ -5,16 +5,15 @@ import LandingCarousel from "@/UI/LandingCarousel";
 
 export default function Home() {
   return (
-    <>
-      {" "}
-      <section id="home">
-        <LandingCarousel></LandingCarousel>
+    <div className="min-h-screen w-full">
+      <section id="home" className="w-full">
+        <LandingCarousel />
       </section>
-      <About></About>
-      <section id="arts">
-        <HomeArts></HomeArts>
-        <HomeRecentArts></HomeRecentArts>
+      <About />
+      <section id="arts" className="w-full">
+        <HomeArts />
+        <HomeRecentArts />
       </section>
-    </>
+    </div>
   );
 }

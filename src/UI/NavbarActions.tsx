@@ -15,10 +15,14 @@ export default function NavbarActions() {
     <ul className="flex items-center gap-4">
       <LanguageSwitch></LanguageSwitch>
       {isAuthenticated ? (
-        <Avatar onClick={() => navigate("/account")}>
+        <Avatar
+          className="h-8 w-8 cursor-pointer border-2 border-white/20 transition-all duration-200 hover:scale-110 hover:border-white/40 sm:h-10 sm:w-10"
+          onClick={() => navigate("/account")}
+        >
           <AvatarImage
-            src={avatar ? avatar : "Images/default-user.jpg"}
-            alt="@shadcn"
+            src={avatar ? avatar : "/Images/default-user.jpg"}
+            alt="User Avatar"
+            className="object-cover"
           />
         </Avatar>
       ) : (

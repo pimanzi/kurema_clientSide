@@ -110,7 +110,6 @@ export function CreateArt({ id }: { id: number | null | undefined }) {
                   value={field.value}
                   disabled={isCreating}
                   placeholder={t("newArtInputDescriptionField")}
-                  className="w-full text-sm sm:text-base"
                 ></TextareaUi>
               )}
             />
@@ -174,7 +173,6 @@ export function CreateArt({ id }: { id: number | null | undefined }) {
                   {...field}
                   onChange={field.onChange}
                   disabled={isCreating}
-                  className="w-full text-sm sm:text-base"
                 />
               )}
             />

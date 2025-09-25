@@ -105,7 +105,6 @@ export function AddReview({
                 value={field.value}
                 disabled={false}
                 placeholder={t("commentorReview")}
-                className="min-h-[80px] text-sm sm:min-h-[100px] sm:text-base"
               />
             )}
           />

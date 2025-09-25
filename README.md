@@ -1,69 +1,70 @@
-# KUREMA HUB  
+# KUREMA HUB
 
-## Table of Contents  
+## Table of Contents
 
-1. [Description](#description)  
-2. [Technologies](#technologies)  
-3. [Live Demo](#live-demo)  
-4. [Installation](#installation)  
-5. [Author](#author)  
-6. [Contribution](#contribution)  
+1. [Description](#description)
+2. [Technologies](#technologies)
+3. [Live Demo](#live-demo)
+4. [Installation](#installation)
+5. [Author](#author)
+6. [Contribution](#contribution)
 
-## Description  
+## Description
 
-Kurema Hub is an innovative art e-commerce platform designed to showcase and celebrate Rwandan arts. It enables artists to upload, update, and manage their artwork effortlessly, while providing users with a seamless experience to view, rate, give feedback, and purchase artwork. Artists benefit from unlimited uploads, no commissions, and a platform to connect directly with buyers via email.  
+Kurema Hub is an innovative art e-commerce platform designed to showcase and celebrate Rwandan arts. It enables artists to upload, update, and manage their artwork effortlessly, while providing users with a seamless experience to view, rate, give feedback, and purchase artwork. Artists benefit from unlimited uploads, no commissions, and a platform to connect directly with buyers via email..
 
-## Technologies  
+## Technologies
 
-- **React**: For building dynamic user interfaces.  
-- **TypeScript**: To ensure robust and scalable code.  
-- **Tailwind CSS**: For creating responsive and aesthetically pleasing designs.  
-- **Supabase**: For database management and real-time updates.  
-- **Netlify**: For deployment and hosting.  
+- **React**: For building dynamic user interfaces.
+- **TypeScript**: To ensure robust and scalable code.
+- **Tailwind CSS**: For creating responsive and aesthetically pleasing designs.
+- **Supabase**: For database management and real-time updates.
+- **Netlify**: For deployment and hosting.
 
-## Live Demo  
+## Live Demo
 
-Check out the live demo here: [Kurema Hub](https://kuremahub.netlify.app) *(link to be added)*  
+Check out the live demo here: [Kurema Hub](https://kuremahub.netlify.app) _(link to be added)_
 
-## Installation  
+## Installation
 
-1. **Download Node.js and npm**:  
-   - Install Node.js from the [Node.js official website](https://nodejs.org/).  
-   - The LTS version is recommended for stability.  
-   - npm (Node Package Manager) comes bundled with Node.js.  
+1. **Download Node.js and npm**:
 
-2. Clone the repository to your local machine:  
+   - Install Node.js from the [Node.js official website](https://nodejs.org/).
+   - The LTS version is recommended for stability.
+   - npm (Node Package Manager) comes bundled with Node.js.
 
-    ```bash
-    git clone https://github.com/pimanzi/kuremaHub_ClientSide.git
-    ```  
+2. Clone the repository to your local machine:
 
-3. Navigate to the project directory:  
+   ```bash
+   git clone https://github.com/pimanzi/kuremaHub_ClientSide.git
+   ```
 
-    ```bash
-    cd kuremaHub_ClientSide
-    ```  
+3. Navigate to the project directory:
 
-4. Install the necessary dependencies:  
+   ```bash
+   cd kuremaHub_ClientSide
+   ```
 
-    ```bash
-    npm install
-    ```  
+4. Install the necessary dependencies:
 
-5. Open the project in your preferred IDE (Recommendation: VS Code).  
+   ```bash
+   npm install
+   ```
 
-6. Run the project locally with:  
+5. Open the project in your preferred IDE (Recommendation: VS Code).
 
-    ```bash
-    npm run dev
-    ```  
+6. Run the project locally with:
 
-## Author  
+   ```bash
+   npm run dev
+   ```
 
-[Placide Imanzi Kabisa](https://github.com/pimanzi)  
+## Author
 
-## Contribution  
+[Placide Imanzi Kabisa](https://github.com/pimanzi)
 
-We welcome feedback and contributions to make Kurema Hub even better. Feel free to share your ideas or contribute to the platform.  
+## Contribution
 
-**HAPPY CODING!**  
+We welcome feedback and contributions to make Kurema Hub even better. Feel free to share your ideas or contribute to the platform.
+
+**HAPPY CODING!**
